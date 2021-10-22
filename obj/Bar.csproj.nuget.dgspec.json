@@ -1,24 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "D:\\.vscodeProjects\\fatec\\inter\\Bar\\Bar.csproj": {}
+    "C:\\Users\\felip\\OneDrive\\Documentos\\inter\\Bar.csproj": {}
   },
   "projects": {
-    "D:\\.vscodeProjects\\fatec\\inter\\Bar\\Bar.csproj": {
+    "C:\\Users\\felip\\OneDrive\\Documentos\\inter\\Bar.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\.vscodeProjects\\fatec\\inter\\Bar\\Bar.csproj",
+        "projectUniqueName": "C:\\Users\\felip\\OneDrive\\Documentos\\inter\\Bar.csproj",
         "projectName": "Bar",
-        "projectPath": "D:\\.vscodeProjects\\fatec\\inter\\Bar\\Bar.csproj",
-        "packagesPath": "C:\\Users\\ENZO\\.nuget\\packages\\",
-        "outputPath": "D:\\.vscodeProjects\\fatec\\inter\\Bar\\obj\\",
+        "projectPath": "C:\\Users\\felip\\OneDrive\\Documentos\\inter\\Bar.csproj",
+        "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\felip\\OneDrive\\Documentos\\inter\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ENZO\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",

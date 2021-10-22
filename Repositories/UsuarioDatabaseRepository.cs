@@ -125,23 +125,23 @@ namespace Bar.Repositories
       }
     }
 */
-    public Usuario Read(string cpf)
+    public Usuario Read(string Cpf)
     {
       try
       {
         SqlCommand cmd = new SqlCommand();
         cmd.Connection = connection;
 
-        cmd.CommandText = "SELECT Id FROM Usuario WHERE cpf = @cpf";
+        cmd.CommandText = "SELECT * FROM Usuario WHERE cpf = @cpf";
 
-        cmd.Parameters.AddWithValue("@cpf", cpf);
+        cmd.Parameters.AddWithValue("@cpf", Cpf);
 
         SqlDataReader reader = cmd.ExecuteReader();
 
         if (reader.Read())
         {
           Usuario usuario = new Usuario();
-          usuario.Id = reader.GetInt32(0);
+          usuario.Cpf = reader.GetString(0);
 
           return usuario;
         }

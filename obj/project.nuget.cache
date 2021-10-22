@@ -1,18 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "rpgcvo1HPrjKTXdk1nyvh6v/cZxbsmDvWcFsuN5teFgvzqHl3KYKwlkfngulWNSbNNt/udnhPTTXmgMylr0cRw==",
-  "success": false,
-  "projectFilePath": "D:\\.vscodeProjects\\fatec\\inter\\Bar\\Bar.csproj",
-  "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "NU1100",
-      "level": "Error",
-      "message": "Não foi possível resolver 'System.Data.SqlClient (>= 4.8.3)' para 'net5.0'.",
-      "libraryId": "System.Data.SqlClient",
-      "targetGraphs": [
-        "net5.0"
-      ]
-    }
-  ]
+  "dgSpecHash": "mFPhbv7UpMT+/Oh4K2BHAyAJJpyhCW1RtEGOw/F2YV6yoBkPWMy+Cgz9DkmHS8AShLlakigxvjppOxyUSXna+A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\felip\\OneDrive\\Documentos\\inter\\Bar.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\felip\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\felip\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\felip\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
+    "C:\\Users\\felip\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\felip\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\felip\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\felip\\.nuget\\packages\\system.data.sqlclient\\4.8.3\\system.data.sqlclient.4.8.3.nupkg.sha512",
+    "C:\\Users\\felip\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
+    "C:\\Users\\felip\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
 }
