@@ -5,7 +5,9 @@
   },
   "libraries": {},
   "projectFileDependencyGroups": {
-    "net5.0": []
+    "net5.0": [
+      "System.Data.SqlClient >= 4.8.3"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\ENZO\\.nuget\\packages\\": {}
@@ -40,6 +42,12 @@
     "frameworks": {
       "net5.0": {
         "targetAlias": "net5.0",
+        "dependencies": {
+          "System.Data.SqlClient": {
+            "target": "Package",
+            "version": "[4.8.3, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -61,5 +69,16 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Não foi possível resolver 'System.Data.SqlClient (>= 4.8.3)' para 'net5.0'.",
+      "libraryId": "System.Data.SqlClient",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }

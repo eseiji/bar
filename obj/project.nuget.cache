@@ -1,8 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "V3Ykov+uNJKX1Nhc+bzh+8Fl/ugEN0ZzqJ6rXbcrAT8GdDtJklOMQASihJC/U0iJngi/hx3GeeH6jEW96wfFGQ==",
-  "success": true,
+  "dgSpecHash": "rpgcvo1HPrjKTXdk1nyvh6v/cZxbsmDvWcFsuN5teFgvzqHl3KYKwlkfngulWNSbNNt/udnhPTTXmgMylr0cRw==",
+  "success": false,
   "projectFilePath": "D:\\.vscodeProjects\\fatec\\inter\\Bar\\Bar.csproj",
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Não foi possível resolver 'System.Data.SqlClient (>= 4.8.3)' para 'net5.0'.",
+      "libraryId": "System.Data.SqlClient",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }

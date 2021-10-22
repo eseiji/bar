@@ -1,0 +1,16 @@
+@model Bar.Models.UsuarioLoginViewModel
+
+@{
+  ViewBag.Title = "Login";
+  Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+  <form asp-controller="Usuario" asp-action="Login" method="POST">
+    <div class="form-group">
+      <label>CPF</label>
+      <input type="text" name="Cpf" placeholder="Digite seu CPF" asp-for="Cpf"/>
+    </div>
+    <button class="btn btn-primary">Entrar</button>
+  </form>
+</div>
