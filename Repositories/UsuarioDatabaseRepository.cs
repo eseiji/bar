@@ -132,9 +132,10 @@ namespace Bar.Repositories
         SqlCommand cmd = new SqlCommand();
         cmd.Connection = connection;
 
-        cmd.CommandText = "SELECT * FROM Usuario WHERE cpf = @cpf";
+        cmd.CommandText = "select us.id_usuario from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf = @Cpf";
 
-        cmd.Parameters.AddWithValue("@cpf", Cpf);
+        cmd.Parameters.AddWithValue("@Cpf", Cpf);
+        Console.WriteLine(Cpf);
 
         SqlDataReader reader = cmd.ExecuteReader();
 

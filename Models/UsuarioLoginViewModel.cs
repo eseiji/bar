@@ -5,6 +5,6 @@ namespace Bar.Models
   public class UsuarioLoginViewModel
   {
     [Required(ErrorMessage = "Campo obrigatório!")]
-    public string Cpf { get; set; }
+    public string CPF { get; set; }
   }
 }

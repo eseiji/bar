@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\felip\\OneDrive\\Documentos\\inter\\Bar.csproj": {}
+    "D:\\.vscodeProjects\\fatec\\inter\\Bar\\Bar.csproj": {}
   },
   "projects": {
-    "C:\\Users\\felip\\OneDrive\\Documentos\\inter\\Bar.csproj": {
+    "D:\\.vscodeProjects\\fatec\\inter\\Bar\\Bar.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\felip\\OneDrive\\Documentos\\inter\\Bar.csproj",
+        "projectUniqueName": "D:\\.vscodeProjects\\fatec\\inter\\Bar\\Bar.csproj",
         "projectName": "Bar",
-        "projectPath": "C:\\Users\\felip\\OneDrive\\Documentos\\inter\\Bar.csproj",
-        "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\felip\\OneDrive\\Documentos\\inter\\obj\\",
+        "projectPath": "D:\\.vscodeProjects\\fatec\\inter\\Bar\\Bar.csproj",
+        "packagesPath": "C:\\Users\\ENZO\\.nuget\\packages\\",
+        "outputPath": "D:\\.vscodeProjects\\fatec\\inter\\Bar\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ENZO\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -40,7 +40,7 @@
           "dependencies": {
             "System.Data.SqlClient": {
               "target": "Package",
-              "version": "[4.8.3, )"
+              "version": "[4.8.2, )"
             }
           },
           "imports": [
@@ -61,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

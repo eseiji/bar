@@ -15,17 +15,18 @@ namespace Bar.Controllers
     }
 
     [HttpPost]
-    public ActionResult Login(UsuarioLoginViewModel model)
+    public ActionResult Login(Usuario model)
     {
       Usuario usuario = repository.Read(model.Cpf);
 
       if (usuario == null)
       {
-        ViewBag.Message = "Usuário não encontrado!";
-        return View(model);
+        return ViewBag.Message = "Usuário não encontrado!";
+        //return View(model);
       }
+      return ViewBag.Message = "Usuário encontrado!";
 
-      return RedirectToAction("Index", "Bar");
+      //return RedirectToAction("Index", "Bar");
     }
   }
 }

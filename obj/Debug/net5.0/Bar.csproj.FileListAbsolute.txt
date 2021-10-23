@@ -88,3 +88,9 @@ C:\Users\felip\OneDrive\Documentos\inter\obj\Debug\net5.0\Bar.RazorTargetAssembl
 C:\Users\felip\OneDrive\Documentos\inter\obj\Debug\net5.0\Bar.Views.pdb
 C:\Users\felip\OneDrive\Documentos\inter\obj\Debug\net5.0\Bar.csproj.CopyComplete
 C:\Users\felip\OneDrive\Documentos\inter\obj\Debug\net5.0\Bar.genruntimeconfig.cache
+D:\.vscodeProjects\fatec\inter\Bar\bin\Debug\net5.0\System.Data.SqlClient.dll
+D:\.vscodeProjects\fatec\inter\Bar\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+D:\.vscodeProjects\fatec\inter\Bar\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+D:\.vscodeProjects\fatec\inter\Bar\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+D:\.vscodeProjects\fatec\inter\Bar\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\.vscodeProjects\fatec\inter\Bar\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
