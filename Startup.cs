@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Bar.Repositories;
 
 namespace Bar
 {
@@ -24,6 +25,7 @@ namespace Bar
     public void ConfigureServices(IServiceCollection services)
     {
       //services.AddTransient<IUsuarioRepository, UsuarioDatabaseRepository>();
+      services.AddTransient<UsuarioDatabaseRepository>();
       services.AddControllersWithViews();
     }
 

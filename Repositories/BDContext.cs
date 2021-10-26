@@ -14,12 +14,12 @@ namespace Bar.Repositories
     protected SqlConnection connection;
 
     // Construtor
-    public void Open()
+    public BDContext()
     {
-      var strConnection = "Data Source = localhost; Integrated Security = True; Initial Catalog = nome_banco_bar";
+      Console.WriteLine("Abri a conexão");
+      var strConnection = "Data Source = localhost;Integrated Security = True;Initial Catalog = nome_banco_bar";
       connection = new SqlConnection(strConnection);
       connection.Open();
-      Console.WriteLine("Abri a conexão");
     }
 
     public void Dispose()

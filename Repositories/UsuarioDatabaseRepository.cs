@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Bar.Models;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace Bar.Repositories
 {
@@ -123,8 +124,8 @@ namespace Bar.Repositories
       {
         Dispose();
       }
-    }
-*/
+    }*/
+
     public Usuario Read(string Cpf)
     {
       try
@@ -132,17 +133,20 @@ namespace Bar.Repositories
         SqlCommand cmd = new SqlCommand();
         cmd.Connection = connection;
 
-        cmd.CommandText = "select us.id_usuario from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf = @Cpf";
+        //cmd.CommandText = "select us.cpf from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= '@Cpf'";
+        cmd.CommandText = "select us.cpf from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= @Cpf";
 
-        cmd.Parameters.AddWithValue("@Cpf", Cpf);
+        cmd.Parameters.AddWithValue("@cpf", Cpf);
+
+        //cmd.Parameters.AddWithValue("@cpf", Cpf);
         Console.WriteLine(Cpf);
 
-        SqlDataReader reader = cmd.ExecuteReader();
+        SqlDataReader Reader = cmd.ExecuteReader();
 
-        if (reader.Read())
+        if (Reader.Read())
         {
           Usuario usuario = new Usuario();
-          usuario.Cpf = reader.GetString(0);
+          usuario.Cpf = Reader.GetString(0);
 
           return usuario;
         }
@@ -152,7 +156,9 @@ namespace Bar.Repositories
       }
       catch (Exception ex)
       {
-        throw new Exception("Usuário não encontrada.");
+        throw new Exception(ex.Message);
+        //Console.WriteLine(ex.Message);
+        //return null;
       }
       finally
       {
@@ -161,3 +167,43 @@ namespace Bar.Repositories
     }
   }
 }
+/*
+public Usuario Read(Usuario usuario)
+{
+  try
+  {
+    SqlCommand cmd = new SqlCommand();
+    cmd.Connection = connection;
+
+    cmd.CommandText = "select us.cpf from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= @Cpf";
+
+    cmd.Parameters.AddWithValue("@cpf", usuario.Cpf);
+
+    SqlDataReader Reader = cmd.ExecuteReader();
+
+    Usuario UsuarioEncontrado = new Usuario();
+    if (Reader.Read())
+    {
+      UsuarioEncontrado.Cpf = Reader.GetString("cpf");
+    }
+
+    return UsuarioEncontrado;
+  }
+  catch (Exception ex)
+  {
+    throw new Exception("Usuario não encontrado!");
+    //Console.WriteLine(ex.Message);
+    //return null;
+  }
+  finally
+  {
+    Dispose();
+  }
+}
+
+internal Usuario Read(string cpf)
+{
+  throw new NotImplementedException();
+}
+}
+}*/

@@ -6,6 +6,6 @@ namespace Bar.Repositories
 {
   public interface IUsuarioRepository
   {
-    Usuario Read(string CPF);
+    Usuario Read(string Cpf);
   }
 }
