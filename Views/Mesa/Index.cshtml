@@ -1,9 +1,123 @@
-@model Bar.Models.Usuario
 @{
-    ViewBag.Title = "Painel de Controle";
-    Layout = "/Views/Shared/_Layout.cshtml";
+  ViewBag.Title = "Painel de Controle";
 }
 
-<h1>Painel de Controle</h1>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-<a href="/usuario/login" class="btn btn-primary">Login</a>
+  .container2 {
+    width: min(90vw, 800px);
+    margin: auto;
+  }
+
+  .menu {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    grid-gap: 1rem;
+  }
+
+  .product {
+    background: #303038;
+    color: white;
+    padding: 1rem 1rem;
+    width: 100%;
+    height: 300px;
+    border-radius: 0.25rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-between;
+
+    margin-bottom: 1rem;
+  }
+
+  .product img {
+    width: 100%;
+    height: 130px;
+  }
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+      <div class="container">
+        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Bar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+          <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item">
+              <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Carrinho</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main class="container2">
+    <section class="menu">
+      <div class="product">
+        <img src="~/lib/img/wallpaper.jpg" alt="">
+        <h6>Descrição do produto</h6>
+        <h2>R$ 15,00</h2>
+        <button class="btn btn-primary btn-sm">Adicionar no carrinho</button>
+      </div>
+      <div class="product">
+        <img src="~/lib/img/wallpaper.jpg" alt="">
+        <h6>Descrição do produto</h6>
+        <h2>R$ 15,00</h2>
+        <button class="btn btn-primary btn-sm">Adicionar no carrinho</button>
+      </div>
+      <div class="product">
+        <img src="~/lib/img/wallpaper.jpg" alt="">
+        <h6>Descrição do produto</h6>
+        <h2>R$ 15,00</h2>
+        <button class="btn btn-primary btn-sm">Adicionar no carrinho</button>
+      </div>
+      <div class="product">
+        <img src="~/lib/img/wallpaper.jpg" alt="">
+        <h6>Descrição do produto</h6>
+        <h2>R$ 15,00</h2>
+        <button class="btn btn-primary btn-sm">Adicionar no carrinho</button>
+      </div>
+      <div class="product">
+        <img src="~/lib/img/wallpaper.jpg" alt="">
+        <h6>Descrição do produto</h6>
+        <h2>R$ 15,00</h2>
+        <button class="btn btn-primary btn-sm">Adicionar no carrinho</button>
+      </div>
+      <div class="product">
+        <img src="~/lib/img/wallpaper.jpg" alt="">
+        <h6>Descrição do produto</h6>
+        <h2>R$ 15,00</h2>
+        <button class="btn btn-primary btn-sm">Adicionar no carrinho</button>
+      </div>
+    </section>
+  </main>
+  <footer></footer>
+</body>
+
+</html>

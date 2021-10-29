@@ -38,6 +38,7 @@ namespace Bar.Controllers
       {
         Console.WriteLine("Usuário encontrado!");
         return RedirectToAction("Index", "Mesa");
+        //return View("Index", "Mesa");
         //return View(usuario);
       }
       //ViewBag.Message = "Usuário encontrado!";
