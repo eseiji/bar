@@ -25,6 +25,8 @@ namespace Bar
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddTransient<IMesaRepository>();
+      services.AddTransient<IProdutoRepository, ProdutoRepository>();
+      services.AddTransient<IPedidoRepository, PedidoRepository>();
       services.AddTransient<UsuarioDatabaseRepository>();
       services.AddControllersWithViews();
     }

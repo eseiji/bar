@@ -37,7 +37,7 @@ namespace Bar.Controllers
       else
       {
         Console.WriteLine("Usuário encontrado!");
-        return RedirectToAction("Index", "Pedido");
+        return RedirectToAction("Cardapio", "Produto");
         //return View("Index", "Mesa");
         //return View(usuario);
       }

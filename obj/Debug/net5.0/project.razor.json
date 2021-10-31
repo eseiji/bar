@@ -15659,6 +15659,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\.vscodeProjects\\fatec\\inter\\Bar\\Views\\Produto\\Cardapio.cshtml",
+      "TargetPath": "Views\\Produto\\Cardapio.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\.vscodeProjects\\fatec\\inter\\Bar\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
