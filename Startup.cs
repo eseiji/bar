@@ -24,8 +24,8 @@ namespace Bar
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-      services.AddTransient<IMesaRepository>();
       services.AddTransient<IProdutoRepository, ProdutoRepository>();
+      services.AddTransient<IMesaRepository, MesaRepository>();
       services.AddTransient<IPedidoRepository, PedidoRepository>();
       services.AddTransient<UsuarioDatabaseRepository>();
       services.AddControllersWithViews();

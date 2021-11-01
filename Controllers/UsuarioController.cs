@@ -25,7 +25,7 @@ namespace Bar.Controllers
     [HttpPost]
     public ActionResult Login(Usuario model)
     {
-      Usuario usuario = repository.Read(model.Cpf);
+      Usuario usuario = repository.Read(model.Cpf, model.Tipo);
       //Usuario usuario = repository.ValidarLogin(model.Cpf);
 
       if (usuario == null)
@@ -37,14 +37,28 @@ namespace Bar.Controllers
       }
       else
       {
+        if (model.Tipo == "cliente")
+        {
+          return RedirectToAction("Cardapio", "Produto");
+        }
+        if (model.Tipo == "funcionario")
+        {
+          return RedirectToAction("Index", "Mesa");
+        }
         Console.WriteLine("Usuário encontrado!");
-        return RedirectToAction("Cardapio", "Produto");
         //return View("Index", "Mesa");
         //return View(usuario);
       }
+
+      //HttpContext.Session.SetString("Tipo", usuario.Tipo);
       //ViewBag.Message = "Usuário encontrado!";
       //Console.WriteLine("Usuário encontrado!");
 
+      return View();
+    }
+
+    public ActionResult Admin()
+    {
       return View();
     }
   }

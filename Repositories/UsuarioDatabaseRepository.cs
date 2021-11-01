@@ -126,20 +126,28 @@ namespace Bar.Repositories
       }
     }*/
 
-    public Usuario Read(string Cpf)
+    public Usuario Read(string Cpf, string Tipo)
     {
       try
       {
         SqlCommand cmd = new SqlCommand();
         cmd.Connection = connection;
 
-        //cmd.CommandText = "select us.cpf from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= '@Cpf'";
-        cmd.CommandText = "select us.cpf from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= @Cpf";
+        if (Tipo == "cliente")
+        {
+          cmd.CommandText = "select us.cpf from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= @Cpf";
+        }
+        if (Tipo == "funcionario")
+        {
+          cmd.CommandText = "select us.cpf from usuario us join funcionario func on (us.id_usuario = func.id_usuario) where us.cpf= @Cpf";
+        }
 
         cmd.Parameters.AddWithValue("@cpf", Cpf);
 
+        //cmd.CommandText = "select us.cpf from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= '@Cpf'";
+
+
         //cmd.Parameters.AddWithValue("@cpf", Cpf);
-        Console.WriteLine(Cpf);
 
         SqlDataReader Reader = cmd.ExecuteReader();
 

@@ -1,7 +1,10 @@
+using System.Collections.Generic;
+using Bar.Models;
+
 namespace Bar.Repositories
 {
-  public class IMesaRepository
+  public interface IMesaRepository
   {
-
+    List<Mesa> Read();
   }
 }

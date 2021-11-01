@@ -1,5 +1,5 @@
 @using Bar.Models
-@model List<Mesa>
+@model List<Produto>
 @{
   ViewBag.Title = "Painel de Controle";
 }
@@ -71,15 +71,15 @@
 
   <main class="container2">
     <section class="menu">
-      @foreach (var mesa in Model)
+      @foreach (var produto in Model)
       {
         <div class="product">
-          <h6>Mesa @mesa.IdMesa</h6>
-          <h6>Status: @mesa.Status</h6>
-          <button class="btn btn-primary btn-sm">Acessar</button>
+          <img src="~/lib/img/wallpaper.jpg" alt="">
+          <h6>@produto.Descricao</h6>
+          <h2>R$ @produto.Valor</h2>
+          <button class="btn btn-secondary btn-sm">Adicionar no carrinho</button>
         </div>
       }
-
     </section>
   </main>
   <footer></footer>

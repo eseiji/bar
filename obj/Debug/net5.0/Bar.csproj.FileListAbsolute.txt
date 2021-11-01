@@ -97,3 +97,6 @@ D:\.vscodeProjects\fatec\inter\Bar\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2
 D:\.vscodeProjects\fatec\inter\Bar\obj\Debug\net5.0\Razor\Views\Mesa\Index.cshtml.g.cs
 D:\.vscodeProjects\fatec\inter\Bar\obj\Debug\net5.0\Razor\Views\Pedido\Index.cshtml.g.cs
 D:\.vscodeProjects\fatec\inter\Bar\obj\Debug\net5.0\Razor\Views\Produto\Cardapio.cshtml.g.cs
+D:\.vscodeProjects\fatec\inter\Bar\obj\Debug\net5.0\Razor\Views\Usuario\Admin.cshtml.g.cs
+D:\.vscodeProjects\fatec\inter\Bar\obj\Debug\net5.0\Razor\Views\Bar\Cardapio.cshtml.g.cs
+D:\.vscodeProjects\fatec\inter\Bar\obj\Debug\net5.0\Razor\Views\Controle\Index.cshtml.g.cs

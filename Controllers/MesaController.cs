@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Bar.Models;
 using Bar.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,7 +16,9 @@ namespace Bar.Controllers
 
     public ActionResult Index()
     {
-      return View();
+      List<Mesa> mesas = repository.Read();
+      return View(mesas);
+      //return RedirectToAction("Index", "Controle", mesas);
     }
   }
 }

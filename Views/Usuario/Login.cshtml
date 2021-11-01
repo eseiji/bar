@@ -1,6 +1,6 @@
 @model Bar.Models.Usuario
 @{
-  ViewBag.Title = "Login2";
+  ViewBag.Title = "Login";
 }
 
 <style>
@@ -47,6 +47,11 @@
 
     margin-bottom: 1rem;
   }
+
+  .form-select {
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
 </style>
 
 <!DOCTYPE html>
@@ -63,8 +68,13 @@
   <main class="container2">
     <form asp-controller="Usuario" asp-action="Login" method="POST">
       <section class="login">
-
         <div class="cpf">
+
+          <select class="form-select" name="tipo" asp-for="Tipo" required>
+            <option value="" selected>Selecione o tipo de usuário</option>
+            <option value="cliente">Cliente</option>
+            <option value="funcionario">Funcionário</option>
+          </select>
           <div class="input-group">
             <input type="text" name="Cpf" placeholder="Digite seu CPF" asp-for="Cpf" class="form-control" required
               autofocus />
