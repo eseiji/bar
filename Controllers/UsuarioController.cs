@@ -32,6 +32,7 @@ namespace Bar.Controllers
       {
         //ViewBag.Message = "Usuário não encontrado!";
         Console.WriteLine("Usuário não encontrado!");
+        ViewBag.Message = "Usuário não encontrado!";
         //return View(model);
       }
       else

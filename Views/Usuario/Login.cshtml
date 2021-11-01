@@ -1,16 +1,90 @@
 @model Bar.Models.Usuario
-
 @{
   ViewBag.Title = "Login";
-  Layout = "/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container">
-  <form asp-controller="Usuario" asp-action="Login" method="POST">
-    <div class="form-group">
-      <label>CPF</label>
-      <input type="text" name="Cpf" placeholder="Digite seu CPF" asp-for="Cpf" required/>
-    </div>
-    <button class="btn btn-primary">Entrar</button>
-  </form>
-</div>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  header {
+    background: #28282d;
+    color: white;
+  }
+
+  body {
+    background: #303038;
+  }
+
+  footer {
+    background: #28282d;
+  }
+
+  .container2 {
+    width: min(90vw, 800px);
+    margin: auto;
+  }
+
+  .login {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+  }
+
+  .cpf {
+    background: #28282d;
+    color: white;
+    padding: 1rem 1rem;
+    width: 50%;
+    border-radius: 0.25rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin-bottom: 1rem;
+  }
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <main class="container2">
+    <form asp-controller="Usuario" asp-action="Login" method="POST">
+      <section class="login">
+
+        <div class="cpf">
+          <div class="input-group">
+            <input type="text" name="Cpf" placeholder="Digite seu CPF" asp-for="Cpf" class="form-control" required
+              autofocus />
+            <div class="input-group-append">
+              <button class="btn btn-primary btn-sm">Entrar</button>
+            </div>
+          </div>
+
+          @if (ViewBag.Message != null)
+          {
+            <div class="alert alert-danger" style="margin: 1rem 0 0 0">
+              @ViewBag.Message
+            </div>
+          }
+        </div>
+      </section>
+
+    </form>
+  </main>
+
+</body>
+
+</html>
