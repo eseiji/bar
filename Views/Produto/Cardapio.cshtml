@@ -2,7 +2,11 @@
 @model List<Produto>
 @{
   ViewBag.Title = "Painel de Controle";
+
+  int[] terms = new int[20];
+  List<dynamic> termsList = new List<dynamic>();
 }
+
 
 <style>
   * {
@@ -68,7 +72,6 @@
 </head>
 
 <body>
-
   <main class="container2">
     <section class="menu">
       @foreach (var produto in Model)
@@ -77,7 +80,8 @@
           <img src="~/lib/img/wallpaper.jpg" alt="">
           <h6>@produto.Descricao</h6>
           <h2>R$ @produto.Valor</h2>
-          <button class="btn btn-secondary btn-sm">Adicionar no carrinho</button>
+          <button asp-action="Adicionar" class="btn btn-secondary btn-sm">Adicionar ao carrinho</button>
+          <a href="/produto/adicionar/@produto.Descricao" class="btn btn-sm btn-primary">Editar</a>
         </div>
       }
     </section>

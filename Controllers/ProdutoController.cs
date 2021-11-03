@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Bar.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -17,6 +18,14 @@ namespace Bar.Models
     {
       List<Produto> produtos = repository.Read();
       return View(produtos);
+    }
+
+    [HttpGet]
+    public ActionResult Adicionar(string id)
+    {
+      Console.WriteLine(id);
+      return RedirectToAction("Cardapio", "Produto");
+      //return RedirectToAction("Cardapio", "Produto");
     }
   }
 }

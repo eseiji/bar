@@ -17,6 +17,17 @@ namespace Bar.Controllers
     public ActionResult Index()
     {
       List<Mesa> mesas = repository.Read();
+      foreach (var item in mesas)
+      {
+        if(item.Status == 1)
+        {
+          item.TextoStatus = "Disponível";
+        }
+        else
+        {
+          item.TextoStatus = "Em uso";
+        }
+      }
       return View(mesas);
       //return RedirectToAction("Index", "Controle", mesas);
     }
