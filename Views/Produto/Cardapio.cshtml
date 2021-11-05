@@ -74,15 +74,16 @@
 <body>
   <main class="container2">
     <section class="menu">
+      FAZER O ADICIONAR PRODUTO IGUAL AO TODO, USANDO A SESSÃO DE REPOSITORY
       @foreach (var produto in Model)
       {
         <div class="product">
           <img src="~/lib/img/wallpaper.jpg" alt="">
           <h6>@produto.Descricao</h6>
           <h2>R$ @produto.Valor</h2>
-          <button asp-action="Adicionar" class="btn btn-secondary btn-sm">Adicionar ao carrinho</button>
-          <a href="/produto/adicionar/@produto.Descricao" class="btn btn-sm btn-primary">Editar</a>
-        </div>
+          <button asp-action="Adicionar" class="btn btn-secondary btn-sm">Adicionar no carrinho</button>
+          <!--<a href="/produto/adicionar/@produto.Descricao" class="btn btn-sm btn-primary">Editar</a>-->
+      </div>
       }
     </section>
   </main>
