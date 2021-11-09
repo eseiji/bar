@@ -60,6 +60,19 @@
     width: 100%;
     height: 130px;
   }
+
+  .div-qtd {
+    display: flex;
+    align-items: center;
+    height: 50px;
+  }
+
+  .input-qtd {
+    width: 30%;
+    border: 0px;
+    border-radius: 0.25rem;
+    outline: none;
+  }
 </style>
 
 <!DOCTYPE html>
@@ -74,18 +87,52 @@
 <body>
   <main class="container2">
     <section class="menu">
-      FAZER O ADICIONAR PRODUTO IGUAL AO TODO, USANDO A SESSÃO DE REPOSITORY
+      <!--FAZER O ADICIONAR PRODUTO IGUAL AO TODO, USANDO A SESSÃO DE REPOSITORY-->
       @foreach (var produto in Model)
       {
         <div class="product">
           <img src="~/lib/img/wallpaper.jpg" alt="">
           <h6>@produto.Descricao</h6>
           <h2>R$ @produto.Valor</h2>
-          <button asp-action="Adicionar" class="btn btn-secondary btn-sm">Adicionar no carrinho</button>
+          <button id="btnAdd" onclick="AdicionarProduto('@produto.Descricao', '@produto.Valor')"
+          class="btn btn-secondary btn-sm">Adicionar no carrinho</button>
           <!--<a href="/produto/adicionar/@produto.Descricao" class="btn btn-sm btn-primary">Editar</a>-->
       </div>
       }
     </section>
+
+    <div id="tabesla">
+    </div>
+
+    <table id="tabela" class="table table-hover">
+      <thead>
+        <tr>
+          <th>Descrição</th>
+          <th>Valor</th>
+          <th>Quantidade</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+
+    <!--
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Descrição</th>
+          <th scope="col">Valor</th>
+          <th scope="col">Quantidade</th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+        <tr>
+          <td></td>
+          <td></td>
+          <td><input type="number" style="width: 50px;"></td>
+        </tr>
+      </tbody>
+    </table>-->
+
   </main>
   <footer></footer>
 </body>
