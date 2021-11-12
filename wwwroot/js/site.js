@@ -157,3 +157,5 @@ function AdicionarProduto(descricao, valor) {
   //tb.appendChild(tbl);
   // sets the border attribute of tbl to 2;
 }
+
+
