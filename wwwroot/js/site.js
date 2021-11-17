@@ -79,7 +79,7 @@ let table = document.querySelector("table");
 generateTable(table, produtos);*/
 
 let produtos = [];
-function AdicionarProduto(descricao, valor) {
+function AdicionarProduto1(descricao, valor) {
   produtos.push({ descricao: descricao, valor: valor });
   console.log(produtos);
   // get the reference for the body
@@ -117,32 +117,25 @@ function AdicionarProduto(descricao, valor) {
         row.appendChild(cell);
 
         for (var m = 0; m < 1; m++) {
-          // Create a <td> element and a text node, make the text
-          // node the contents of the <td>, and put the <td> at
-          // the end of the table row
-
-          /*
-          var cell = document.createElement("td");
-          var cellText = document.createTextNode("R$ " + valor);
-          cell.appendChild(cellText);
-          row.appendChild(cell);
-          */
-          /*
-
+          var td = document.createElement("td");
           var div = document.createElement("div");
-          div.className = "div-qtd";
           var cell = document.createElement("input");
+          div.className = "div-qtd";
           cell.type = "text";
           cell.className = "input-qtd";
+          td.appendChild(div);
           div.appendChild(cell);
-          row.appendChild(div);*/
-          var div = document.createElement("div");
-          div.className = "div-qtd";
-          var cell = document.createElement("input");
-          cell.type = "text";
-          cell.className = "input-qtd";
-          div.appendChild(cell);
-          row.appendChild(div);
+          row.appendChild(td);
+
+          for (var n = 0; n < 1; n++) {
+            var td = document.createElement("td");
+            var btn = document.createElement("button");
+            var text = document.createTextNode("Editar");
+            btn.className = "btn btn-secondary";
+            btn.appendChild(text);
+            td.appendChild(btn);
+            row.appendChild(td);
+          }
         }
       }
     }
@@ -158,4 +151,20 @@ function AdicionarProduto(descricao, valor) {
   // sets the border attribute of tbl to 2;
 }
 
-
+function EnviarProdutos() {
+  $.ajax({
+    type: "POST",
+    URL: "https://localhost:5001/Produto/Teste",
+    data: "",
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    success: function (msg) {
+      //$("#divResult").html("success");
+      console.log("success");
+    },
+    error: function (e) {
+      console.log("error");
+      //$("#divResult").html("Something Wrong.");
+    },
+  });
+}

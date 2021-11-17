@@ -100,3 +100,4 @@ D:\.vscodeProjects\fatec\inter\Bar\obj\Debug\net5.0\Razor\Views\Produto\Cardapio
 D:\.vscodeProjects\fatec\inter\Bar\obj\Debug\net5.0\Razor\Views\Usuario\Admin.cshtml.g.cs
 D:\.vscodeProjects\fatec\inter\Bar\obj\Debug\net5.0\Razor\Views\Bar\Cardapio.cshtml.g.cs
 D:\.vscodeProjects\fatec\inter\Bar\obj\Debug\net5.0\Razor\Views\Controle\Index.cshtml.g.cs
+D:\.vscodeProjects\fatec\inter\Bar\obj\Debug\net5.0\Razor\Views\Produto\Carrinho.cshtml.g.cs

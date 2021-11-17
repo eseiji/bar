@@ -135,7 +135,7 @@ namespace Bar.Repositories
 
         if (Tipo == "cliente")
         {
-          cmd.CommandText = "select us.cpf from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= @Cpf";
+          cmd.CommandText = "select us.id_usuario, us.cpf from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= @Cpf";
         }
         if (Tipo == "funcionario")
         {

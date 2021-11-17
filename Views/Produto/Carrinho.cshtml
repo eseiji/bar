@@ -1,0 +1,33 @@
+@model Bar.Models.Produto
+@{
+  ViewBag.Title = "Carrinho";
+}
+
+<div class="container" style="background: #ccc;">
+  <h1>CARRINHO</h1>
+  <form asp-controller="Produto" asp-action="Carrinho" method="POST">
+
+    <div class="form-group">
+      <label>ID</label>
+      <input type="text" required="true" asp-for="IdProduto" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label>Descricão</label>
+      <input type="text" required="true" asp-for="Descricao" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label>Preço</label>
+      <input type="text" required="true" asp-for="Valor" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label>Quantidade</label>
+      <input type="number" asp-for="Quantidade" />
+    </div>
+
+    <button class="btn btn-primary">Salvar</button>
+    <a href="/produto/cardapio" class="btn btn-primary">Voltar</a>
+
+  </form>
+</div>

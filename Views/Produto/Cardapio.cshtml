@@ -31,6 +31,7 @@
   .container2 {
     width: min(90vw, 800px);
     margin: auto;
+    height: 100vh;
   }
 
   .menu {
@@ -62,16 +63,16 @@
   }
 
   .div-qtd {
-    display: flex;
-    align-items: center;
-    height: 50px;
+    width: 50px;
   }
 
   .input-qtd {
-    width: 30%;
+    width: 100px;
     border: 0px;
     border-radius: 0.25rem;
     outline: none;
+    padding: 5px 10px 5px 10px;
+    font-weight: bold;
   }
 </style>
 
@@ -96,21 +97,30 @@
           <h2>R$ @produto.Valor</h2>
           <button id="btnAdd" onclick="AdicionarProduto('@produto.Descricao', '@produto.Valor')"
           class="btn btn-secondary btn-sm">Adicionar no carrinho</button>
-          <!--<a href="/produto/adicionar/@produto.Descricao" class="btn btn-sm btn-primary">Editar</a>-->
-      </div>
+
+          <a href="/produto/carrinho/@produto.IdProduto" class="btn btn-sm btn-primary">Adicionar produto</a>
+        </div>
       }
     </section>
-
-    <table id="tabela" class="table table-hover">
+    <br />
+    <br />
+    <table id="tabela" class="table" style="background: #28282d; color: white; padding: 50px;">
       <thead>
         <tr>
           <th>Descrição</th>
           <th>Valor</th>
           <th>Quantidade</th>
+          <th>&nbsp</th>
         </tr>
       </thead>
       <tbody id="tbody"></tbody>
     </table>
+
+
+    <a href="/produto/carrinhoteste" class="btn btn-sm btn-primary">Ver Carrinho</a>
+
+    <button class="btn btn-primary btn-sm" OnClick="EnviarProdutos()">Carrinho</button>
+    <a href="/produto/teste/produtos5" class="btn btn-sm btn-primary">Enviar</a>
 
     <!--
     <table class="table table-hover">
@@ -132,6 +142,14 @@
 
   </main>
   <footer></footer>
+
+  <script>
+    let produtos5 = [];
+    function AdicionarProduto(descricao, valor) {
+      produtos5.push({ descricao: descricao, valor: valor });
+      console.log(produtos5);
+    }
+  </script>
 
 
 </body>

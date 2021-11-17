@@ -39,6 +39,7 @@ namespace Bar.Controllers
       {
         if (model.Tipo == "cliente")
         {
+          HttpContext.Session.SetInt32("IdCliente", usuario.IdUsuario);
           return RedirectToAction("Cardapio", "Produto");
         }
         if (model.Tipo == "funcionario")

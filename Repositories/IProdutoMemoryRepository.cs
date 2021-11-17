@@ -3,12 +3,11 @@ using Bar.Models;
 
 namespace Bar.Repositories
 {
-  public interface IProdutoRepository
+  public interface IProdutoMemoryRepository
   {
     //void Create(Produto model);
     List<Produto> Read();
-    Produto Read(int id);
-    void InserirProduto(Produto model);
+    void Create(Produto model);
 
     //Produto Read(int id);
     //void Update(int id, Produto model);

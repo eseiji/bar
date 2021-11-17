@@ -15674,6 +15674,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\.vscodeProjects\\fatec\\inter\\Bar\\Views\\Produto\\Carrinho.cshtml",
+      "TargetPath": "Views\\Produto\\Carrinho.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\.vscodeProjects\\fatec\\inter\\Bar\\Views\\Mesa\\Index.cshtml",
       "TargetPath": "Views\\Mesa\\Index.cshtml",
       "FileKind": "mvc"
