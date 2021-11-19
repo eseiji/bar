@@ -6,19 +6,19 @@ using Bar.Models;
 
 namespace Bar.Repositories
 {
-  public class ProdutoMemoryRepository : BDContext, IProdutoMemoryRepository
+  public class ProdutoMemoryRepository : IProdutoMemoryRepository
   {
 
 
-    private static List<Produto> produtos = new List<Produto>();
-    public void Create(Produto model)
+    private static List<int> teste = new List<int>();
+    public void Create(int id)
     {
-      produtos.Add(model);
+      teste.Add(id);
     }
 
-    public List<Produto> Read()
+    public List<int> Read()
     {
-      return produtos;
+      return teste;
     }
   }
 }

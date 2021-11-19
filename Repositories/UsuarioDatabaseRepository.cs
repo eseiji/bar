@@ -135,7 +135,7 @@ namespace Bar.Repositories
 
         if (Tipo == "cliente")
         {
-          cmd.CommandText = "select us.id_usuario, us.cpf from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= @Cpf";
+          cmd.CommandText = "select us.cpf, us.id_usuario from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= @Cpf";
         }
         if (Tipo == "funcionario")
         {
@@ -155,6 +155,10 @@ namespace Bar.Repositories
         {
           Usuario usuario = new Usuario();
           usuario.Cpf = Reader.GetString(0);
+          if (Tipo == "cliente")
+          {
+            usuario.IdUsuario = Reader.GetInt32(1);
+          }
 
           return usuario;
         }

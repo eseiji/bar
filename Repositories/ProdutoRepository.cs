@@ -129,5 +129,55 @@ namespace Bar.Repositories
         Dispose();
       }
     }
+    private static List<int> teste = new List<int>();
+    private static List<Produto> teste2 = new List<Produto>();
+
+    public List<Produto> Query(int id)
+    {
+      try
+      {
+        SqlCommand cmd = new SqlCommand();
+        cmd.Connection = connection;
+
+        //cmd.CommandText = "select us.cpf from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= '@Cpf'";
+        cmd.CommandText = "select id_produto, descricao, valor, tipo_produto from produto where id_produto = @id";
+
+        cmd.Parameters.AddWithValue("@id", id);
+
+        SqlDataReader Reader = cmd.ExecuteReader();
+
+
+        if (Reader.Read())
+        {
+          Produto produto = new Produto();
+          produto.IdProduto = Reader.GetInt32("id_produto");
+          produto.Descricao = Reader.GetString("descricao");
+          produto.Valor = Math.Round(Reader.GetDecimal("valor"), 2);
+          produto.TipoProduto = Reader.GetInt32("tipo_produto");
+
+          teste2.Add(produto);
+        }
+        return teste2;
+
+      }
+      catch (Exception ex)
+      {
+        throw new Exception(ex.Message);
+        //Console.WriteLine(ex.Message);
+        //return null;
+      }
+      finally
+      {
+        Dispose();
+      }
+      /*
+      teste.Add(id);
+      return teste;*/
+    }
+    public List<int> Create(int id)
+    {
+      teste.Add(id);
+      return teste;
+    }
   }
 }

@@ -10,39 +10,42 @@ namespace Bar.Models
   public class ProdutoController : Controller
   {
     private IProdutoRepository repository;
-    private IProdutoMemoryRepository mrepository;
+    //private IProdutoMemoryRepository mrepository;
 
     public ProdutoController(IProdutoRepository repository)
     {
       this.repository = repository;
     }
 
-    public ActionResult Cardapio()
+    public ActionResult Cardapio(int id)
     {
       List<Produto> produtos = repository.Read();
-      return View(produtos);
+      ViewBag.produtos = produtos;
+      Create(id);
+      return View();
     }
 
-    public ActionResult Create(Produto model)
+    public ActionResult Create(int id)
     {
-      mrepository.Create(model);
-      return RedirectToAction("Cardapio");
+      List<Produto> teste2 = repository.Query(id);
+      /*List<int> teste = repository.Create(id);
+      ViewBag.teste = teste;*/
+      ViewBag.teste2 = teste2;
+      return ViewBag.teste2;
     }
 
     public ActionResult Carrinho(int id)
     {
-
-      return RedirectToAction("Cardapio");
+      return RedirectToAction("Create");
       /*
       var produto = repository.Read(id);
       Console.WriteLine("Passou");
       return View(produto);*/
     }
 
-    public ActionResult CarrinhoTeste()
+    public void CarrinhoTeste(object model)
     {
-      HttpContext.Session.GetInt32("id");
-      return RedirectToAction("Cardapio");
+      Console.WriteLine("PASSOU");
       /*
       var produto = repository.Read(id);
       Console.WriteLine("Passou");

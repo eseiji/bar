@@ -1,10 +1,7 @@
 @using Bar.Models
-@model List<Produto>
+@model Bar.Models.Produto
 @{
   ViewBag.Title = "Painel de Controle";
-
-  int[] terms = new int[20];
-  List<dynamic> termsList = new List<dynamic>();
 }
 
 
@@ -89,16 +86,14 @@
   <main class="container2">
     <section class="menu">
       <!--FAZER O ADICIONAR PRODUTO IGUAL AO TODO, USANDO A SESSÃO DE REPOSITORY-->
-      @foreach (var produto in Model)
+      @foreach (var produto in @ViewBag.produtos)
       {
         <div class="product">
           <img src="~/lib/img/wallpaper.jpg" alt="">
           <h6>@produto.Descricao</h6>
           <h2>R$ @produto.Valor</h2>
-          <button id="btnAdd" onclick="AdicionarProduto('@produto.Descricao', '@produto.Valor')"
-          class="btn btn-secondary btn-sm">Adicionar no carrinho</button>
 
-          <a href="/produto/carrinho/@produto.IdProduto" class="btn btn-sm btn-primary">Adicionar produto</a>
+          <a href="/produto/cardapio/@produto.IdProduto" class="btn btn-sm btn-primary">Selecionar produto</a>
         </div>
       }
     </section>
@@ -113,14 +108,30 @@
           <th>&nbsp</th>
         </tr>
       </thead>
-      <tbody id="tbody"></tbody>
+      <tbody id="tbody">
+        <tr>
+          <td></td>
+        </tr>
+      </tbody>
     </table>
 
+    @foreach (var teste2 in @ViewBag.teste2)
+    {
+      <h6>@teste2.Descricao</h6>
+      <h2>R$ @teste2.Valor</h2>
+    }
 
-    <a href="/produto/carrinhoteste" class="btn btn-sm btn-primary">Ver Carrinho</a>
+    <h4>@ViewBag.teste2</h4>
 
+
+    <h4>@ViewBag.produtos</h4>
+    <!--<button id="btnAdd" onclick="AdicionarProduto('produto.Descricao', 'produto.Valor')"
+      class="btn btn-secondary btn-sm">Adicionar no carrinho</button>-->
+    <a href="/produto/carrinhoteste" class="btn btn-sm btn-primary">Ir para o Carrinho</a>
+
+    <!--
     <button class="btn btn-primary btn-sm" OnClick="EnviarProdutos()">Carrinho</button>
-    <a href="/produto/teste/produtos5" class="btn btn-sm btn-primary">Enviar</a>
+    <a href="/produto/teste/produtos5" class="btn btn-sm btn-primary">Enviar</a>-->
 
     <!--
     <table class="table table-hover">

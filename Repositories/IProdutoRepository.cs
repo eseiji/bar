@@ -7,6 +7,8 @@ namespace Bar.Repositories
   {
     //void Create(Produto model);
     List<Produto> Read();
+    List<int> Create(int id);
+    List<Produto> Query(int id);
     Produto Read(int id);
     void InserirProduto(Produto model);
 
