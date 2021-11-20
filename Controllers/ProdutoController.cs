@@ -21,17 +21,20 @@ namespace Bar.Models
     {
       List<Produto> produtos = repository.Read();
       ViewBag.produtos = produtos;
-      Create(id);
+
+      List<int> teste = repository.Create(id);
+      ViewBag.teste = teste;
+
       return View();
     }
 
     public ActionResult Create(int id)
     {
-      List<Produto> teste2 = repository.Query(id);
-      /*List<int> teste = repository.Create(id);
-      ViewBag.teste = teste;*/
-      ViewBag.teste2 = teste2;
-      return ViewBag.teste2;
+      //List<Produto> teste2 = repository.Query(id);
+      List<int> teste = repository.Create(id);
+      ViewBag.teste = teste;
+      //ViewBag.teste2 = teste2;
+      return RedirectToAction("Cardapio");
     }
 
     public ActionResult Carrinho(int id)
@@ -43,7 +46,7 @@ namespace Bar.Models
       return View(produto);*/
     }
 
-    public void CarrinhoTeste(object model)
+    public void CarrinhoTeste(List<int> produtosTeste)
     {
       Console.WriteLine("PASSOU");
       /*

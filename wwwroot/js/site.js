@@ -151,19 +151,17 @@ function AdicionarProduto1(descricao, valor) {
   // sets the border attribute of tbl to 2;
 }
 
-function EnviarProdutos() {
+function EnviarProdutos(id, descricao, valor) {
   $.ajax({
-    type: "POST",
-    URL: "https://localhost:5001/Produto/Teste",
-    data: "",
-    contentType: "application/json; charset=utf-8",
-    dataType: "json",
+    type: "GET",
+    URL: "https://localhost:5001/Produto/Create",
+    data: { id: id, descricao: descricao, valor: valor },
     success: function (msg) {
       //$("#divResult").html("success");
-      console.log("success");
+      console.log(msg);
     },
     error: function (e) {
-      console.log("error");
+      console.log(e);
       //$("#divResult").html("Something Wrong.");
     },
   });

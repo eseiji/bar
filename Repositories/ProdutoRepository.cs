@@ -156,8 +156,10 @@ namespace Bar.Repositories
           produto.TipoProduto = Reader.GetInt32("tipo_produto");
 
           teste2.Add(produto);
+          return teste2;
         }
-        return teste2;
+
+        return null;
 
       }
       catch (Exception ex)
