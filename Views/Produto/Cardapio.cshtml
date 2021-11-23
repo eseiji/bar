@@ -93,37 +93,43 @@
           <h6>@produto.Descricao</h6>
           <h2>R$ @produto.Valor</h2>
 
-          <a href="/produto/cardapio/@produto.IdProduto" class="btn btn-sm btn-primary">Selecionar produto</a>
+          <a href="/produto/cardapio1/@produto.IdProduto" class="btn btn-sm btn-primary">Selecionar produto</a>
         </div>
       }
     </section>
     <br />
     <br />
-    <table id="tabela" class="table" style="background: #28282d; color: white; padding: 50px;">
-      <thead>
-        <tr>
-          <th>Descrição</th>
-          <th>Valor</th>
-          <th>Quantidade</th>
-          <th>&nbsp</th>
-        </tr>
-      </thead>
-      <tbody id="tbody">
-        <tr>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
+    <form asp-controller="Produto" asp-action="Pedido">
+      <table id="tabela" class="table" style="background: #28282d; color: white; padding: 50px;">
+        <thead>
+          <tr>
+            <th>Descricao</th>
+            <th>Valor</th>
+            <th>Quantidade</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+          @if (@ViewBag.testeFinal != null)
+          {
+            foreach (var item in @ViewBag.testeFinal)
+            {
+              <tr>
+                <td>@item.Descricao</td>
+                <td>R$ @item.Valor</td>
+                <td><input type="number" name="quantidade" asp-for="Quantidade"></td>
+              </tr>
+            }
+          }
+        </tbody>
+      </table>
+      <a href="/produto/pedido" class="btn btn-sm btn-primary">Ir para o Carrinho</a>
+      <button>Carrinho</button>
+    </form>
 
 
-
-    @foreach (var teste in @ViewBag.teste)
-    {
-      <h6>@teste</h6>
-    }
     <!--<button id="btnAdd" onclick="AdicionarProduto('produto.Descricao', 'produto.Valor')"
       class="btn btn-secondary btn-sm">Adicionar no carrinho</button>-->
-    <a href="/produto/carrinhoteste/@ViewBag.teste" class="btn btn-sm btn-primary">Ir para o Carrinho</a>
+    <!--<a href="/produto/carrinhoteste/@ViewBag.teste" class="btn btn-sm btn-primary">Ir para o Carrinho</a>-->
 
     <!--
     <button class="btn btn-primary btn-sm" OnClick="EnviarProdutos()">Carrinho</button>

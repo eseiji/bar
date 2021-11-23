@@ -17,7 +17,7 @@ namespace Bar.Repositories
     public BDContext()
     {
       Console.WriteLine("Abri a conexão");
-      var strConnection = "Data Source = localhost;Integrated Security = True;Initial Catalog = BDBar";
+      var strConnection = "Data Source = DESKTOP-506GQL0;Integrated Security = True;Initial Catalog = BDBar";
       connection = new SqlConnection(strConnection);
       connection.Open();
     }

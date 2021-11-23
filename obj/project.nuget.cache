@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1sf/TBm4jhzVdj9Y0U01vu530DvcaK+ArHfLmT4nfdUfVntHQQn5hgGeOTAv41rOXG/y2NiRCRVVfK9DKm7iVw==",
+  "dgSpecHash": "n2B3tJ3olqjfolGOUzrCYTHRvNJRzNkNuqxuCdI9TkohM+ZaYb3/CXMDsx6V/Apx4sQKi/VtgO6qbQ92KJlMPQ==",
   "success": true,
-  "projectFilePath": "D:\\.vscodeProjects\\fatec\\inter\\Bar\\Bar.csproj",
+  "projectFilePath": "D:\\.vscodeProjects\\fatec\\testeConexao\\Bar.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ENZO\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\2.2.0\\microsoft.aspnetcore.cryptography.internal.2.2.0.nupkg.sha512",
     "C:\\Users\\ENZO\\.nuget\\packages\\microsoft.aspnetcore.dataprotection\\2.2.0\\microsoft.aspnetcore.dataprotection.2.2.0.nupkg.sha512",

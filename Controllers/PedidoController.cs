@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Text.Json;
 using Bar.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,6 +13,18 @@ namespace Bar.Models
     public PedidoController(IPedidoRepository repository)
     {
       this.repository = repository;
+    }
+
+    public void Carrinho()
+    {
+      if (TempData["selecionados"] != null)
+      {
+        var selecionados = JsonSerializer.Deserialize<List<Produto>>(TempData["selecionados"] as String);
+        repository.Create(selecionados);
+        Console.WriteLine(selecionados);
+      }
+
+      //return View("Carrinho");
     }
 
   }

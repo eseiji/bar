@@ -1260,11 +1260,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\.vscodeProjects\\fatec\\inter\\Bar\\Bar.csproj",
+      "projectUniqueName": "D:\\.vscodeProjects\\fatec\\testeConexao\\Bar.csproj",
       "projectName": "Bar",
-      "projectPath": "D:\\.vscodeProjects\\fatec\\inter\\Bar\\Bar.csproj",
+      "projectPath": "D:\\.vscodeProjects\\fatec\\testeConexao\\Bar.csproj",
       "packagesPath": "C:\\Users\\ENZO\\.nuget\\packages\\",
-      "outputPath": "D:\\.vscodeProjects\\fatec\\inter\\Bar\\obj\\",
+      "outputPath": "D:\\.vscodeProjects\\fatec\\testeConexao\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ENZO\\AppData\\Roaming\\NuGet\\NuGet.Config"
