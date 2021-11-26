@@ -15,10 +15,17 @@ namespace Bar.Repositories
         SqlCommand cmd = new SqlCommand();
         cmd.Connection = connection;
 
+        Decimal valor_total = 0;
+
+        foreach (var item in produtos)
+        {
+          valor_total = valor_total + (item.Quantidade * item.Valor);
+        }
+
         //cmd.CommandText = "select us.cpf from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= '@Cpf'";
         cmd.CommandText = "insert into pedido (valor, data_inclusao, status, id_mesa, id_cliente, id_funcionario) values (@valor, GETDATE(), 1, 1, 1, 1)" + "select @@IDENTITY";
 
-        cmd.Parameters.AddWithValue("@valor", "sim"); //AJUSTAR ===================================================
+        cmd.Parameters.AddWithValue("@valor", valor_total); //AJUSTAR ===================================================
 
         int idPedido = Convert.ToInt32(cmd.ExecuteScalar());
 
@@ -33,7 +40,7 @@ namespace Bar.Repositories
           cmdProd.Parameters.AddWithValue("@qtd_vendida", item.Quantidade);
           cmdProd.Parameters.AddWithValue("@valor_unitario", item.Valor);
 
-          SqlDataReader Reader = cmdProd.ExecuteReader();
+          cmdProd.ExecuteNonQuery();
         }
 
         //cmd.Parameters.AddWithValue("@id", id);

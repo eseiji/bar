@@ -93,22 +93,23 @@
           <h6>@produto.Descricao</h6>
           <h2>R$ @produto.Valor</h2>
 
-          <a href="/produto/cardapio1/@produto.IdProduto" class="btn btn-sm btn-primary">Selecionar produto</a>
+          <a href="/produto/selecionarProduto/@produto.IdProduto" class="btn btn-sm btn-primary">Selecionar produto</a>
         </div>
       }
     </section>
     <br />
     <br />
-    <form asp-controller="Produto" asp-action="Pedido">
-      <table id="tabela" class="table" style="background: #28282d; color: white; padding: 50px;">
-        <thead>
-          <tr>
-            <th>Descricao</th>
-            <th>Valor</th>
-            <th>Quantidade</th>
-          </tr>
-        </thead>
-        <tbody id="tbody">
+    <table id="tabela" class="table" style="background: #28282d; color: white; padding: 50px;">
+      <thead>
+        <tr>
+          <th>Descricao</th>
+          <th>Valor</th>
+          <th>Quantidade</th>
+          <th>&nbsp</th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+        <form asp-controller="Produto" asp-action="TesteQtd" method="POST">
           @if (@ViewBag.testeFinal != null)
           {
             foreach (var item in @ViewBag.testeFinal)
@@ -116,15 +117,18 @@
               <tr>
                 <td>@item.Descricao</td>
                 <td>R$ @item.Valor</td>
-                <td><input type="number" name="quantidade" asp-for="Quantidade"></td>
+                <td>@item.Quantidade</td>
+                <td><a href="/produto/incrementoQtd/@item.IdProduto">Incremento</a>&nbsp&nbsp&nbsp<a
+                href="/produto/decrementoQtd/@item.IdProduto">Decremento</a></td>
               </tr>
             }
           }
-        </tbody>
-      </table>
-      <a href="/produto/pedido" class="btn btn-sm btn-primary">Ir para o Carrinho</a>
-      <button>Carrinho</button>
-    </form>
+          <button>TesteQtd</button>
+        </form>
+      </tbody>
+    </table>
+    <a href="/produto/pedido" class="btn btn-sm btn-primary">Ir para o Carrinho</a>
+    <button>Carrinho</button>
 
 
     <!--<button id="btnAdd" onclick="AdicionarProduto('produto.Descricao', 'produto.Valor')"

@@ -140,7 +140,6 @@ D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Home\Privacy.
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Mesa\Index.cshtml.g.cs
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Pedido\Index.cshtml.g.cs
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Produto\Cardapio.cshtml.g.cs
-D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Produto\Carrinho.cshtml.g.cs
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -156,3 +155,4 @@ D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Bar.dll
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\ref\Bar.dll
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Bar.pdb
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Bar.genruntimeconfig.cache
+D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Pedido\Carrinho.cshtml.g.cs

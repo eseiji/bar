@@ -12,37 +12,43 @@ namespace Bar.Models
   {
     private IProdutoRepository repository;
     //private IProdutoMemoryRepository mrepository;
-
     public ProdutoController(IProdutoRepository repository)
     {
       this.repository = repository;
     }
-    public static List<Produto> selecionados = new List<Produto>();
+    private static List<Produto> selecionados = new List<Produto>();
     public ActionResult Cardapio(Produto teste)
     {
       List<Produto> produtos = repository.Read();
       ViewBag.produtos = produtos;
-      selecionados.Add(teste);
+      if (teste.Descricao != null)
+      {
+        selecionados.Add(teste);
+        /*
+        if (selecionados[0].Descricao == null)
+        {
+          selecionados.RemoveAt(0);
+          ViewBag.testeFinal = null;
+        }
+        else
+        {
+          ViewBag.testeFinal = selecionados;
+        }*/
+      }
       ViewBag.testeFinal = selecionados;
-      if (selecionados[0].Descricao == null)
-      {
-        selecionados.RemoveAt(0);
-        ViewBag.testeFinal = null;
-      }
-      else
-      {
-        ViewBag.testeFinal = selecionados;
-      }
+
       return View();
     }
 
-    public ActionResult Cardapio1(int id)
+    public ActionResult selecionarProduto(int id)
     {
       List<Produto> teste = repository.Query(id);
       //ViewBag.teste = teste;
 
       return RedirectToAction("Cardapio", teste[teste.Count - 1]);
     }
+    /*CRIAR BOTÃO, CHAMAR MÉTODO PARA INCREMENTAR QUANTIDADE.
+    PARA CADA ITEM DA LISTA "SELECIONADOS", COMPARAR COM O ID TRAZIDO PELO BOTÃO E ADICIONAR A QUANTIDADE*/
 
     /*
         public ActionResult Create(int id)
@@ -54,14 +60,34 @@ namespace Bar.Models
           return RedirectToAction("Cardapio");
         }*/
 
+    public ActionResult incrementoQtd(int id)
+    {
+      foreach (var item in selecionados)
+      {
+        if (item.IdProduto == id)
+        {
+          item.Quantidade = item.Quantidade + 1;
+        }
+      }
+      return RedirectToAction("Cardapio", null);
+    }
+
+    public ActionResult decrementoQtd(int id)
+    {
+      foreach (var item in selecionados)
+      {
+        if (item.IdProduto == id)
+        {
+          item.Quantidade = item.Quantidade - 1;
+        }
+      }
+      return RedirectToAction("Cardapio", null);
+    }
+
     public ActionResult Pedido()
     {
       TempData["selecionados"] = JsonSerializer.Serialize(selecionados);
       return RedirectToAction("Carrinho", "Pedido");
-      /*
-      var produto = repository.Read(id);
-      Console.WriteLine("Passou");
-      return View(produto);*/
     }
 
     /*    public void CarrinhoTeste(List<int> produtosTeste)
@@ -72,13 +98,12 @@ namespace Bar.Models
           Console.WriteLine("Passou");
           return View(produto);
         }
-
-        [HttpPost]
-        public ActionResult Carrinho(Produto model)
-        {
-          repository.InserirProduto(model);
-          Console.WriteLine("Passou");
-          return View();
-        }*/
+    */
+    [HttpPost]
+    public void TesteQtd(List<int> qtd)
+    {
+      //repository.InserirProduto(model);
+      Console.WriteLine(qtd);
+    }
   }
 }

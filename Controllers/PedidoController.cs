@@ -15,16 +15,17 @@ namespace Bar.Models
       this.repository = repository;
     }
 
-    public void Carrinho()
+    public ActionResult Carrinho()
     {
       if (TempData["selecionados"] != null)
       {
         var selecionados = JsonSerializer.Deserialize<List<Produto>>(TempData["selecionados"] as String);
         repository.Create(selecionados);
-        Console.WriteLine(selecionados);
+        ViewBag.Produtos = selecionados;
+        //Console.WriteLine(selecionados);
       }
 
-      //return View("Carrinho");
+      return View();
     }
 
   }

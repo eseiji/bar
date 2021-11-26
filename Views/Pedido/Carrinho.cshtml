@@ -1,0 +1,19 @@
+@model Bar.Models.Produto
+@{
+  ViewBag.Title = "Carrinho";
+}
+
+<div class="container" style="background: #ccc;">
+  <h1>CARRINHO</h1>
+  <form asp-controller="Produto" asp-action="Carrinho" method="POST">
+    @foreach (var produto in @ViewBag.Produtos)
+    {
+      <h6>@produto.Descricao</h6>
+      <h2>R$ @produto.Valor</h2>
+      <h2>R$ @produto.Quantidade</h2>
+    }
+    <button class="btn btn-primary">Salvar</button>
+    <a href="/produto/cardapio" class="btn btn-primary">Voltar</a>
+
+  </form>
+</div>

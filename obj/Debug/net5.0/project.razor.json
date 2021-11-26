@@ -15619,11 +15619,6 @@
   "RootNamespace": "Bar",
   "Documents": [
     {
-      "FilePath": "d:\\.vscodeProjects\\fatec\\testeConexao\\Views\\Produto\\Carrinho.cshtml",
-      "TargetPath": "Views\\Produto\\Carrinho.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "d:\\.vscodeProjects\\fatec\\testeConexao\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
@@ -15656,6 +15651,11 @@
     {
       "FilePath": "d:\\.vscodeProjects\\fatec\\testeConexao\\Views\\Mesa\\Index.cshtml",
       "TargetPath": "Views\\Mesa\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\.vscodeProjects\\fatec\\testeConexao\\Views\\Pedido\\Carrinho.cshtml",
+      "TargetPath": "Views\\Pedido\\Carrinho.cshtml",
       "FileKind": "mvc"
     },
     {
