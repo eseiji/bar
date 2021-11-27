@@ -62,47 +62,31 @@
   }
 </style>
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+<form asp-controller="Usuario" asp-action="Login" method="POST">
+  <section class="login">
+    <div class="cpf">
 
-<body>
-  <main class="container2">
-    <form asp-controller="Usuario" asp-action="Login" method="POST">
-      <section class="login">
-        <div class="cpf">
-
-          <select class="form-select" name="tipo" asp-for="Tipo" required>
-            <option value="" selected>Selecione o tipo de usuário</option>
-            <option value="cliente">Cliente</option>
-            <option value="funcionario">Funcionário</option>
-          </select>
-          <div class="input-group">
-            <input type="text" name="Cpf" placeholder="Digite seu CPF" asp-for="Cpf" class="form-control" required
-              autofocus />
-            <div class="input-group-append">
-              <button class="btn btn-primary btn-sm">Entrar</button>
-            </div>
-          </div>
-
-          @if (ViewBag.Message != null)
-          {
-            <div class="alert alert-danger" style="margin: 1rem 0 0 0">
-              @ViewBag.Message
-            </div>
-          }
+      <select class="form-select" style="color: #555;"name="tipo" asp-for="Tipo" required>
+        <option value="" selected>Selecione o tipo de usuário</option>
+        <option value="cliente">Cliente</option>
+        <option value="funcionario">Funcionário</option>
+      </select>
+      <div class="input-group">
+        <input type="text" name="Cpf" placeholder="Digite seu CPF" asp-for="Cpf" class="form-control" required
+          autofocus />
+        <div class="input-group-append">
+          <button class="btn btn-primary btn-sm">Entrar</button>
         </div>
-      </section>
+      </div>
 
-    </form>
-  </main>
+      @if (ViewBag.Message != null)
+      {
+        <div class="alert alert-danger" style="margin: 1rem 0 0 0">
+          @ViewBag.Message
+        </div>
+      }
+    </div>
+  </section>
 
-</body>
-
-</html>
+</form>

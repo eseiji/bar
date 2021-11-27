@@ -1,19 +1,43 @@
 @model Bar.Models.Produto
+<link rel="stylesheet" href="~/css/cardapio.css" />
 @{
   ViewBag.Title = "Carrinho";
+  decimal valor_total = 0;
 }
 
-<div class="container" style="background: #ccc;">
-  <h1>CARRINHO</h1>
-  <form asp-controller="Produto" asp-action="Carrinho" method="POST">
-    @foreach (var produto in @ViewBag.Produtos)
-    {
-      <h6>@produto.Descricao</h6>
-      <h2>R$ @produto.Valor</h2>
-      <h2>R$ @produto.Quantidade</h2>
-    }
+<div class="container">
+  <form asp-controller="Pedido" asp-action="Finalizar" method="POST">
+    <table class="table" style="background: #28282d; color: white; padding: 50px;">
+      <thead>
+        <tr>
+          <th>Descricao</th>
+          <th>Valor</th>
+          <th>Quantidade</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+        @foreach (var produto in @ViewBag.Produtos)
+        {
+          <tr>
+            <td>@produto.Descricao</td>
+            <td>R$ @produto.Valor</td>
+            <td>@produto.Quantidade</td>
+            <td>R$ @(@produto.Quantidade * @produto.Valor)</td>
+          </tr>
+          valor_total = valor_total + (produto.Quantidade * produto.Valor);
+        }
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+            <h3>R$ @valor_total</h3>
+          </td>
+        </tr>
+      </tbody>
+    </table>
     <button class="btn btn-primary">Salvar</button>
     <a href="/produto/cardapio" class="btn btn-primary">Voltar</a>
-
   </form>
 </div>

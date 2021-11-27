@@ -8,6 +8,13 @@ namespace Bar.Models
 {
   public class PedidoController : Controller
   {
+    /*
+    SÓ PARA LEMBRAR:
+
+    CRIAR BOTÃO, CHAMAR MÉTODO PARA INCREMENTAR QUANTIDADE.
+    PARA CADA ITEM DA LISTA "SELECIONADOS", COMPARAR COM O ID TRAZIDO PELO BOTÃO E ADICIONAR A QUANTIDADE (FEITO)
+
+    FAZER INSERT NO BANCO SÓ DEPOIS DE CONFIMAR NA TELA PEDIDO/CARRINHO (REMOVER REPOSITORY.CREATE DO PEDIDO/CARRINHO E ADICIONAR EM PEDIDO/FECHARpedido)*/
     private IPedidoRepository repository;
 
     public PedidoController(IPedidoRepository repository)
@@ -26,6 +33,11 @@ namespace Bar.Models
       }
 
       return View();
+    }
+
+    public void Finalizar()
+    {
+
     }
 
   }
