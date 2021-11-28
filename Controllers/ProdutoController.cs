@@ -84,12 +84,22 @@ namespace Bar.Models
 
     public ActionResult decrementoQtd(int id)
     {
+      int cont = 0;
       foreach (var item in selecionados)
       {
         if (item.IdProduto == id)
         {
-          item.Quantidade = item.Quantidade - 1;
+          if (item.Quantidade > 1)
+          {
+            item.Quantidade = item.Quantidade - 1;
+          }
+          else
+          {
+            selecionados.RemoveAt(cont);
+            return RedirectToAction("Cardapio", null);
+          }
         }
+        cont++;
       }
       return RedirectToAction("Cardapio", null);
     }

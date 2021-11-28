@@ -5,3 +5,64 @@ on (pr.id_pedido = pe.id_pedido)
 join produto prod
 on (prod.id_produto = pr.id_produto)
 where pe.id_pedido = 28
+
+select pe.id_pedido, prod.descricao, pr.qtd_vendida, pr.valor_unitario, pr.qtd_vendida * pr.valor_unitario as total
+from pedido pe
+join produto_pedido pr
+on (pr.id_pedido = pe.id_pedido)
+join produto prod
+on (prod.id_produto = pr.id_produto)
+where pe.id_pedido = 31
+
+select * from pedido order by id_pedido desc
+select * from produto_pedido
+
+select us.cpf, us.id_usuario, us.nome from usuario us join cliente cli on (us.id_usuario = cli.id_usuario)
+
+select pe.id_pedido, pe.data_inclusao, sum(pr.qtd_vendida * pr.valor_unitario) as total, pe.id_mesa
+from pedido pe
+join produto_pedido pr
+on (pr.id_pedido = pe.id_pedido)
+join produto prod
+on (prod.id_produto = pr.id_produto)
+where pe.id_cliente = 1
+group by pe.id_pedido, pe.data_inclusao, pe.id_mesa
+
+
+select pe.id_pedido, pe.data_inclusao, pr.qtd_vendida * pr.valor_unitario as total, pe.id_mesa
+from pedido pe join produto_pedido pr
+on (pr.id_pedido = pe.id_pedido) join produto prod
+on (prod.id_produto = pr.id_produto)
+where pe.id_cliente = 1 order by pe.data_inclusao desc
+
+select us.cpf, us.id_usuario, us.nome from usuario us join funcionario cli on (us.id_usuario = cli.id_usuario)
+
+
+
+delete from pedido where id_cliente = 1
+select * from pedido where id_cliente = 1
+delete from pedido where id_pedido in (5,
+6,
+7,
+8,
+9,
+10,
+11,
+12,
+13,
+14,
+15,
+16,
+17,
+18,
+19,
+20,
+21,
+22,
+23,
+24,
+25,
+26,
+27,
+28,
+29)

@@ -1,5 +1,5 @@
 @using Bar.Models
-@model List<Mesa>
+@model Bar.Models.Mesa
 <link rel="stylesheet" href="~/css/mesa.css" />
 @{
   ViewBag.Title = "Painel de Controle";
@@ -7,14 +7,17 @@
 
 <div class="container">
   <section class="menu">
-    @foreach (var mesa in Model)
+    @foreach (var mesa in @ViewBag.Mesas)
     {
       <div class="card">
         <div class="card-header">
-          <h6>Mesa @mesa.IdMesa</h6>
-          <h6>@mesa.TextoStatus</h6>
+          <h5>Mesa @mesa.IdMesa</h5>
+          <h5>@mesa.TextoStatus</h5>
         </div>
-        <button class="btn btn-primary btn-sm">Acessar</button>
+        <div class="card-body">
+          <h6>Usuário:</h6>
+        </div>
+        <a href="/mesa/painel/@mesa.IdMesa" class="btn btn-primary btn-sm">Acessar</a>
       </div>
     }
 

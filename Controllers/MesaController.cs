@@ -17,9 +17,10 @@ namespace Bar.Controllers
     public ActionResult Index()
     {
       List<Mesa> mesas = repository.Read();
+      ViewBag.Mesas = mesas;
       foreach (var item in mesas)
       {
-        if(item.Status == 1)
+        if (item.Status == 1)
         {
           item.TextoStatus = "Disponível";
         }
@@ -28,8 +29,15 @@ namespace Bar.Controllers
           item.TextoStatus = "Em uso";
         }
       }
-      return View(mesas);
+      return View();
       //return RedirectToAction("Index", "Controle", mesas);
+    }
+
+    public ActionResult Painel(int id)
+    {
+      List<Produto> produtos = repository.Read(id);
+      ViewBag.Produtos = produtos;
+      return View();
     }
   }
 }
