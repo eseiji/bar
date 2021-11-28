@@ -1,94 +1,22 @@
 @using Bar.Models
 @model List<Mesa>
+<link rel="stylesheet" href="~/css/mesa.css" />
 @{
   ViewBag.Title = "Painel de Controle";
 }
 
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  header {
-    background: #28282d;
-    color: white;
-  }
-
-  body {
-    background: #303038;
-  }
-
-  footer {
-    background: #28282d;
-  }
-
-  .container2 {
-    width: min(90vw, 800px);
-    margin: auto;
-    height: 100vh;
-  }
-
-  .menu {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: center;
-    grid-gap: 1rem;
-  }
-
-  .card {
-    background: #28282d;
-    color: white;
-    padding: 1rem 1rem;
-    width: 100%;
-    height: 300px;
-
-    /*border: 1px solid rgba(255, 0, 0, 0.5);*/
-    border-radius: 0.25rem;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-content: space-between;
-
-    margin-bottom: 1rem;
-  }
-
-  .card .card-header {
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
-  }
-</style>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-
-<body>
-
-  <main class="container2">
-    <section class="menu">
-      @foreach (var mesa in Model)
-      {
-        <div class="card">
-          <div class="card-header">
-            <h6>Mesa @mesa.IdMesa</h6>
-            <h6>@mesa.TextoStatus</h6>
-          </div>
-          <button class="btn btn-primary btn-sm">Acessar</button>
+<div class="container">
+  <section class="menu">
+    @foreach (var mesa in Model)
+    {
+      <div class="card">
+        <div class="card-header">
+          <h6>Mesa @mesa.IdMesa</h6>
+          <h6>@mesa.TextoStatus</h6>
         </div>
-      }
+        <button class="btn btn-primary btn-sm">Acessar</button>
+      </div>
+    }
 
-    </section>
-  </main>
-  <footer></footer>
-</body>
-
-</html>
+  </section>
+</div>

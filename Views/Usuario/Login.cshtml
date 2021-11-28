@@ -41,11 +41,9 @@
     padding: 1rem 1rem;
     width: 50%;
     border-radius: 0.25rem;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
     margin-bottom: 1rem;
   }
 
@@ -62,12 +60,10 @@
   }
 </style>
 
-
 <form asp-controller="Usuario" asp-action="Login" method="POST">
   <section class="login">
     <div class="cpf">
-
-      <select class="form-select" style="color: #555;"name="tipo" asp-for="Tipo" required>
+      <select class="form-select" style="color: #555;" name="tipo" asp-for="Tipo" required>
         <option value="" selected>Selecione o tipo de usuário</option>
         <option value="cliente">Cliente</option>
         <option value="funcionario">Funcionário</option>

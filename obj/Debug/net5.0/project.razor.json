@@ -15634,6 +15634,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\.vscodeProjects\\fatec\\testeConexao\\Views\\Usuario\\Perfil.cshtml",
+      "TargetPath": "Views\\Usuario\\Perfil.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\.vscodeProjects\\fatec\\testeConexao\\Views\\Bar\\Cardapio.cshtml",
       "TargetPath": "Views\\Bar\\Cardapio.cshtml",
       "FileKind": "mvc"

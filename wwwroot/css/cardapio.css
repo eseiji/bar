@@ -63,6 +63,38 @@ footer {
   font-weight: bold;
 }
 
+.login {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.cpf {
+  background: #28282d;
+  color: white;
+  padding: 1rem 1rem;
+  width: 50%;
+  border-radius: 0.25rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  margin-bottom: 1rem;
+}
+
+.input-group input {
+  color: white;
+}
+
+.form-select {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+  outline: none;
+  padding: 6px 12px;
+}
+
 th {
   padding: 15px;
 }

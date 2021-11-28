@@ -1,0 +1,7 @@
+select pe.id_pedido, prod.descricao, pr.qtd_vendida, pr.valor_unitario, pr.qtd_vendida * pr.valor_unitario as total
+from pedido pe
+join produto_pedido pr
+on (pr.id_pedido = pe.id_pedido)
+join produto prod
+on (prod.id_produto = pr.id_produto)
+where pe.id_pedido = 28

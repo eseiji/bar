@@ -35,6 +35,16 @@ namespace Bar.Models
           ViewBag.testeFinal = selecionados;
         }*/
       }
+      if (TempData["finalizado"] != null)
+      {
+        var finalizado = JsonSerializer.Deserialize<String>(TempData["finalizado"] as String);
+        if (finalizado == "true")
+        {
+          selecionados.Clear();
+          TempData["finalizado"] = JsonSerializer.Serialize("false");
+          return RedirectToAction("Perfil", "Usuario");
+        }
+      }
       ViewBag.testeFinal = selecionados;
 
       return View();
@@ -88,6 +98,12 @@ namespace Bar.Models
     {
       TempData["selecionados"] = JsonSerializer.Serialize(selecionados);
       return RedirectToAction("Carrinho", "Pedido");
+    }
+
+    public ActionResult PedidoFinalizado()
+    {
+      var finalizado = JsonSerializer.Deserialize<List<Produto>>(TempData["finalizado"] as String);
+      return RedirectToAction("Cardapio");
     }
 
     /*    public void CarrinhoTeste(List<int> produtosTeste)

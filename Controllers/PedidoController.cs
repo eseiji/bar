@@ -27,17 +27,19 @@ namespace Bar.Models
       if (TempData["selecionados"] != null)
       {
         var selecionados = JsonSerializer.Deserialize<List<Produto>>(TempData["selecionados"] as String);
-        repository.Create(selecionados);
         ViewBag.Produtos = selecionados;
-        //Console.WriteLine(selecionados);
-      }
 
+        TempData["selecionados"] = JsonSerializer.Serialize(selecionados);
+      }
       return View();
     }
 
-    public void Finalizar()
+    public ActionResult Finalizar()
     {
-
+      var selecionados = JsonSerializer.Deserialize<List<Produto>>(TempData["selecionados"] as String);
+      repository.Create(selecionados);
+      TempData["finalizado"] = JsonSerializer.Serialize("true");
+      return RedirectToAction("Cardapio", "Produto");
     }
 
   }

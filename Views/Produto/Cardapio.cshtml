@@ -13,7 +13,7 @@
       <div class="product">
         <img src="~/lib/img/wallpaper.jpg" alt="">
         <h6>@produto.Descricao</h6>
-        <h2>R$ @produto.Valor</h2>
+        <h2>R$ @Math.Round(@produto.Valor, 2)</h2>
 
         <a href="/produto/selecionarProduto/@produto.IdProduto" class="btn btn-sm btn-primary">Selecionar produto</a>
       </div>
@@ -37,7 +37,7 @@
         {
           <tr>
             <td>@item.Descricao</td>
-            <td>R$ @item.Valor</td>
+            <td>R$ @Math.Round(@item.Valor, 2)</td>
             <td>@item.Quantidade</td>
             <td>
               <a class="glyphicon glyphicon-plus" style="color: green" aria-hidden="true"

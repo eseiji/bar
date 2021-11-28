@@ -1,0 +1,38 @@
+@model Bar.Models.Usuario
+<link rel="stylesheet" href="~/css/cardapio.css" />
+@{
+  ViewBag.Title = "Perfil";
+  int cont = 1;
+}
+
+<section class="container">
+  <h2 style="color: white;">@ViewBag.Nome</h2>
+
+  @if (ViewBag.Pedidos.Count > 0)
+  {
+    <table class="table" style="background: #28282d; color: white; padding: 100px;">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Valor</th>
+          <th>ID Mesa</th>
+          <th>Data</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (var pedido in @ViewBag.Pedidos)
+        {
+          <tr>
+            <td>@cont</td>
+            <td>R$ @Math.Round(@pedido.Valor, 2)</td>
+            <td>@pedido.IdMesa</td>
+            <td>@Convert.ToDateTime(@pedido.Data).ToString("dd/MM/yyyy")</td>
+          </tr>
+          cont++;
+        }
+      </tbody>
+    </table>
+
+    <a href="/produto/cardapio" class="btn btn-sm btn-primary">Cardápio</a>
+  }
+</section>

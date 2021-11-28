@@ -7,5 +7,6 @@ namespace Bar.Repositories
   public interface IUsuarioRepository
   {
     Usuario Read(string Cpf, string Tipo);
+    List<Pedido> Pedido(int id);
   }
 }

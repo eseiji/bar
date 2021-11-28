@@ -135,7 +135,7 @@ namespace Bar.Repositories
 
         if (Tipo == "cliente")
         {
-          cmd.CommandText = "select us.cpf, us.id_usuario from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= @Cpf";
+          cmd.CommandText = "select us.cpf, us.id_usuario, us.nome from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= @Cpf";
         }
         if (Tipo == "funcionario")
         {
@@ -158,6 +158,7 @@ namespace Bar.Repositories
           if (Tipo == "cliente")
           {
             usuario.IdUsuario = Reader.GetInt32(1);
+            usuario.Nome = Reader.GetString(2);
           }
 
           return usuario;
@@ -177,8 +178,54 @@ namespace Bar.Repositories
         Dispose();
       }
     }
+
+    public List<Pedido> Pedido(int id)
+    {
+      try
+      {
+        List<Pedido> lista_pedidos = new List<Pedido>();
+
+        SqlCommand cmd = new SqlCommand();
+        cmd.Connection = connection;
+
+        cmd.CommandText = "select pe.id_pedido, pe.data_inclusao, sum(pr.qtd_vendida * pr.valor_unitario) as total, pe.id_mesa from pedido pe join produto_pedido pr on (pr.id_pedido = pe.id_pedido) join produto prod on (prod.id_produto = pr.id_produto) where pe.id_cliente = @id group by pe.id_pedido, pe.data_inclusao, pe.id_mesa order by pe.data_inclusao desc";
+
+        cmd.Parameters.AddWithValue("@id", id);
+
+        //cmd.CommandText = "select us.cpf from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= '@Cpf'";
+
+        //cmd.Parameters.AddWithValue("@cpf", Cpf);
+
+        SqlDataReader Reader = cmd.ExecuteReader();
+
+        while (Reader.Read())
+        {
+          Pedido pedido = new Pedido();
+          pedido.Data = Reader.GetDateTime(1);
+          pedido.Valor = Reader.GetDecimal(2);
+          pedido.IdMesa = Reader.GetInt32(3);
+
+          lista_pedidos.Add(pedido);
+        }
+
+        return lista_pedidos;
+
+      }
+      catch (Exception ex)
+      {
+        throw new Exception(ex.Message);
+        //Console.WriteLine(ex.Message);
+        //return null;
+      }
+      finally
+      {
+        Dispose();
+      }
+    }
   }
 }
+
+
 /*
 public Usuario Read(Usuario usuario)
 {
