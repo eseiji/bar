@@ -6,6 +6,6 @@ namespace Bar.Repositories
   public interface IMesaRepository
   {
     List<Mesa> Read();
-    List<Produto> Read(int id);
+    List<Mesa> Read(int id);
   }
 }

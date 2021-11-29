@@ -35,8 +35,13 @@ namespace Bar.Controllers
 
     public ActionResult Painel(int id)
     {
-      List<Produto> produtos = repository.Read(id);
-      ViewBag.Produtos = produtos;
+      List<Mesa> dados = repository.Read(id);
+      ViewBag.Dados = dados;
+      foreach (var item in dados)
+      {
+        ViewBag.NomeCliente = item.NomeCliente;
+        ViewBag.Data = item.Data;
+      }
       return View();
     }
   }

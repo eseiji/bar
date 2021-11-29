@@ -50,17 +50,17 @@ namespace Bar.Repositories
       }
     }
 
-    public List<Produto> Read(int id)
+    public List<Mesa> Read(int id)
     {
       try
       {
-        List<Produto> lista_produto = new List<Produto>();
+        List<Mesa> lista_info_pedido = new List<Mesa>();
 
         SqlCommand cmd = new SqlCommand();
         cmd.Connection = connection;
 
         //cmd.CommandText = "select us.cpf from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= '@Cpf'";
-        cmd.CommandText = "select pe.valor, pe.data_inclusao, us.nome from mesa m join pedido pe on (pe.id_mesa = m.id_mesa) join usuario us on (us.id_usuario = pe.id_cliente) where m.status = 1 and pe.status = 1 and pe.data_inclusao = CONVERT (date, GETDATE()) and m.id_mesa = @id";
+        cmd.CommandText = "select pe.valor, pe.data_inclusao, prod.descricao, pr.qtd_vendida, pr.valor_unitario, us.nome from mesa m join pedido pe on (pe.id_mesa = m.id_mesa) join usuario us on (us.id_usuario = pe.id_cliente) join produto_pedido pr on (pr.id_pedido = pe.id_pedido) join produto prod on (prod.id_produto = pr.id_produto) where pe.status = 1 and pe.data_inclusao = CONVERT (date, GETDATE()) and m.id_mesa = @id";
 
         cmd.Parameters.AddWithValue("@id", id);
 
@@ -69,14 +69,25 @@ namespace Bar.Repositories
 
         while (Reader.Read())
         {
-          Mesa mesa = new Mesa();
-          mesa.IdMesa = Reader.GetInt32("id_mesa");
-          mesa.Status = Reader.GetInt32("status");
+          /*
+          Produto produto = new Produto();
+          produto.Valor = Reader.GetDecimal("valor");
+          produto.IdMesa = Reader.GetInt32("id_mesa");
+          produto.Status = Reader.GetInt32("status");*/
 
-          lista_mesa.Add(mesa);
+          Mesa dados = new Mesa();
+
+          dados.Valor = Reader.GetDecimal("valor");
+          dados.Data = Reader.GetDateTime("data_inclusao");
+          dados.Descricao = Reader.GetString("descricao");
+          dados.Quantidade = Reader.GetInt32("qtd_vendida");
+          dados.ValorUn = Reader.GetDecimal("valor_unitario");
+          dados.NomeCliente = Reader.GetString("nome");
+
+          lista_info_pedido.Add(dados);
         }
 
-        return lista_mesa;
+        return lista_info_pedido;
 
       }
       catch (Exception ex)

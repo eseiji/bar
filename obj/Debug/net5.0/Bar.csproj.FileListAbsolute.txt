@@ -157,3 +157,4 @@ D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Bar.pdb
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Bar.genruntimeconfig.cache
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Pedido\Carrinho.cshtml.g.cs
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Usuario\Perfil.cshtml.g.cs
+D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Mesa\Painel.cshtml.g.cs

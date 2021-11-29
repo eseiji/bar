@@ -156,7 +156,7 @@ namespace Bar.Repositories
           Produto produto = new Produto();
           produto.IdProduto = Reader.GetInt32("id_produto");
           produto.Descricao = Reader.GetString("descricao");
-          produto.Valor = Math.Round(Reader.GetDecimal("valor"), 2);
+          produto.Valor = Reader.GetDecimal("valor");
           produto.TipoProduto = Reader.GetInt32("tipo_produto");
           produto.Quantidade = 1;
 

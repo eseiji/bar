@@ -21,9 +21,9 @@
         {
           <tr>
             <td>@produto.Descricao</td>
-            <td>R$ @produto.Valor</td>
+            <td>R$ @Math.Round(@produto.Valor, 2)</td>
             <td>@produto.Quantidade</td>
-            <td>R$ @(@produto.Quantidade * @produto.Valor)</td>
+            <td>R$ @Math.Round((@produto.Quantidade * @produto.Valor), 2)</td>
           </tr>
           valor_total = valor_total + (produto.Quantidade * produto.Valor);
         }
@@ -32,7 +32,7 @@
           <td></td>
           <td></td>
           <td>
-            <h3>R$ @valor_total</h3>
+            <h3>R$ @Math.Round(@valor_total, 2)</h3>
           </td>
         </tr>
       </tbody>

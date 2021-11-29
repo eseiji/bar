@@ -1,0 +1,44 @@
+@model Bar.Models.Mesa
+<link rel="stylesheet" href="~/css/mesa.css" />
+@{
+  ViewBag.Title = "Painel";
+  decimal valor_total = 0;
+  int cont = 1;
+}
+
+<div class="container">
+  <h4 style="color: white;">Cliente: @ViewBag.NomeCliente</h4>
+  <h4 style="color: white;">@Convert.ToDateTime(@ViewBag.Data).ToString("dd/MM/yyyy")</h4>
+  <table class="table" style="background: #28282d; color: white; padding: 50px;">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Descrição</th>
+        <th>Quantidade</th>
+        <th>Valor</th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+      @foreach (var dado in @ViewBag.Dados)
+      {
+        <tr>
+          <td>@cont</td>
+          <td>@dado.Descricao</td>
+          <td>@dado.Quantidade</td>
+          <td>R$ @Math.Round(@dado.ValorUn, 2)</td>
+        </tr>
+        valor_total = valor_total + (dado.Quantidade * dado.ValorUn);
+        cont++;
+      }
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+          <h3>R$ @Math.Round(@valor_total, 2)</h3>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a href="/mesa/index" class="btn btn-primary">Voltar</a>
+</div>
