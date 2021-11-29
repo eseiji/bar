@@ -8,14 +8,14 @@
 
 <div class="container">
   <h4 style="color: white;">Cliente: @ViewBag.NomeCliente</h4>
-  <h4 style="color: white;">@Convert.ToDateTime(@ViewBag.Data).ToString("dd/MM/yyyy")</h4>
+  <h4 style="color: white;">Data: @Convert.ToDateTime(@ViewBag.Data).ToString("dd/MM/yyyy")</h4>
   <table class="table" style="background: #28282d; color: white; padding: 50px;">
     <thead>
       <tr>
         <th>#</th>
         <th>Descrição</th>
         <th>Quantidade</th>
-        <th>Valor</th>
+        <th>Valor Un.</th>
       </tr>
     </thead>
     <tbody id="tbody">
