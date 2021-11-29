@@ -6,9 +6,9 @@
 }
 
 <section class="container">
-  <h2 style="color: white;">@ViewBag.Nome</h2>
+  <h2 style="color: white;">@ViewBag.Nome - Lista de Pedidos</h2>
 
-  @if (ViewBag.Pedidos.Count > 0)
+  @if (@ViewBag.Pedidos != null && @ViewBag.Pedidos.Count > 0)
   {
     <table class="table" style="background: #28282d; color: white; padding: 100px;">
       <thead>
@@ -17,6 +17,8 @@
           <th>Valor</th>
           <th>ID Mesa</th>
           <th>Data</th>
+          <th>Situação</th>
+          <th>&nbsp</th>
         </tr>
       </thead>
       <tbody>
@@ -27,6 +29,15 @@
             <td>R$ @Math.Round(@pedido.Valor, 2)</td>
             <td>@pedido.IdMesa</td>
             <td>@Convert.ToDateTime(@pedido.Data).ToString("dd/MM/yyyy")</td>
+            @if (@pedido.Status == 1)
+            {
+              <td>Em andamento</td>
+            }
+            else
+            {
+              <td>Pago</td>
+            }
+            <td><a href="/usuario/visualizarPedido/?id=@pedido.IdPedido&status=@pedido.Status">Visualizar</a></td>
           </tr>
           cont++;
         }

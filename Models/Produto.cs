@@ -6,6 +6,7 @@ namespace Bar.Models
     public string Descricao { get; set; }
     public decimal Valor { get; set; }
     public int TipoProduto { get; set; }
+    public int Estoque { get; set; }
     public int Quantidade { get; set; }
   }
 }

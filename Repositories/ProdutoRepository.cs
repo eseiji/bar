@@ -18,7 +18,7 @@ namespace Bar.Repositories
         cmd.Connection = connection;
 
         //cmd.CommandText = "select us.cpf from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= '@Cpf'";
-        cmd.CommandText = "select id_produto, descricao, valor, tipo_produto from produto";
+        cmd.CommandText = "select id_produto, descricao, valor, tipo_produto from produto where qtd_estoque > 0";
 
         SqlCommand cmdProduto = new SqlCommand();
         cmdProduto.Connection = connection;
@@ -144,7 +144,7 @@ namespace Bar.Repositories
         cmdProd.Connection = connection;
 
         //cmd.CommandText = "select us.cpf from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= '@Cpf'";
-        cmdProd.CommandText = "select id_produto, descricao, valor, tipo_produto from produto where id_produto = @id";
+        cmdProd.CommandText = "select id_produto, descricao, valor, qtd_estoque, tipo_produto from produto where id_produto = @id";
 
         cmdProd.Parameters.AddWithValue("@id", id);
 
@@ -157,6 +157,7 @@ namespace Bar.Repositories
           produto.IdProduto = Reader.GetInt32("id_produto");
           produto.Descricao = Reader.GetString("descricao");
           produto.Valor = Reader.GetDecimal("valor");
+          produto.Estoque = Reader.GetInt32("qtd_estoque");
           produto.TipoProduto = Reader.GetInt32("tipo_produto");
           produto.Quantidade = 1;
 

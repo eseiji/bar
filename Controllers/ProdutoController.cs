@@ -72,13 +72,19 @@ namespace Bar.Models
 
     public ActionResult incrementoQtd(int id)
     {
+      List<Produto> produto = repository.Query(id);
       foreach (var item in selecionados)
       {
         if (item.IdProduto == id)
         {
           item.Quantidade = item.Quantidade + 1;
+          if (produto[0].Estoque < item.Quantidade)
+          {
+            item.Quantidade = item.Quantidade - 1;
+          }
         }
       }
+      produto.Clear();
       return RedirectToAction("Cardapio", null);
     }
 

@@ -1,33 +1,36 @@
-@model Bar.Models.Produto
+@model Bar.Models.Usuario
 <link rel="stylesheet" href="~/css/cardapio.css" />
 @{
-  ViewBag.Title = "Carrinho";
+  ViewBag.Title = "Perfil";
   decimal valor_total = 0;
+  int cont = 1;
 }
 
+<section class="container">
+  <h2 style="color: white;">Lista de Produtos</h2>
 
-<div class="container">
   @if (@ViewBag.Produtos != null && @ViewBag.Produtos.Count > 0)
   {
-    <table class="table" style="background: #28282d; color: white; padding: 50px;">
+    <table class="table" style="background: #28282d; color: white; padding: 100px;">
       <thead>
         <tr>
+          <th>#</th>
           <th>Descricao</th>
-          <th>Valor</th>
           <th>Quantidade</th>
-          <th>Total</th>
+          <th>Valor Un.</th>
         </tr>
       </thead>
-      <tbody id="tbody">
+      <tbody>
         @foreach (var produto in @ViewBag.Produtos)
         {
           <tr>
+            <td>@cont</td>
             <td>@produto.Descricao</td>
-            <td>R$ @Math.Round(@produto.Valor, 2)</td>
             <td>@produto.Quantidade</td>
-            <td>R$ @Math.Round((@produto.Quantidade * @produto.Valor), 2)</td>
+            <td>R$ @Math.Round(@produto.Valor, 2)</td>
           </tr>
           valor_total = valor_total + (produto.Quantidade * produto.Valor);
+          cont++;
         }
         <tr>
           <td></td>
@@ -39,8 +42,11 @@
         </tr>
       </tbody>
     </table>
-  }
 
-  <a href="/pedido/finalizar" class="btn btn-primary">Finalizar Pedido</a>
-  <a href="/produto/cardapio" class="btn btn-primary">Voltar</a>
-</div>
+    @if (@ViewBag.Status == 1)
+    {
+      <a href="/usuario/pagamento" class="btn btn-sm btn-primary">Realizar Pagamento</a>
+    }
+    <a href="/usuario/perfil" class="btn btn-sm btn-secondary">Voltar</a>
+  }
+</section>

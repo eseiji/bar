@@ -5,6 +5,7 @@ using Bar.Repositories;
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace Bar.Controllers
 {
@@ -52,22 +53,39 @@ namespace Bar.Controllers
 
       return View();
     }
-
     public ActionResult Perfil()
     {
       var id = HttpContext.Session.GetInt32("IdCliente");
       var nome = HttpContext.Session.GetString("NomeCliente");
-      List<Pedido> pedidos = repository.Pedido((int)id);
+      List<Pedido> pedidos = repository.Pedidos((int)id);
       if (pedidos.Count > 0)
       {
         foreach (var pedido in pedidos)
         {
-          
         }
         ViewBag.Pedidos = pedidos;
       }
       ViewBag.Nome = nome;
       return View();
+    }
+
+    public ActionResult VisualizarPedido(int id, int status)
+    {
+      TempData["IdPedido"] = JsonSerializer.Serialize(id);
+      List<Produto> produtos = repository.Produtos(id);
+      ViewBag.Produtos = produtos;
+      ViewBag.Status = status;
+      /*
+      JsonSerializer.Deserialize<Int32>(TempData["StatusPedido"] as String);
+      TempData["StatusPedido"] = JsonSerializer.Serialize(ViewBag.Pedidos[0].Status);*/
+      return View("Pedido");
+    }
+
+    public ActionResult Pagamento()
+    {
+      var id = JsonSerializer.Deserialize<Int32>(TempData["IdPedido"] as String);
+      repository.Pagamento(id);
+      return RedirectToAction("Perfil");
     }
 
     public ActionResult Cardapio()

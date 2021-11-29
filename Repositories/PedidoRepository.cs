@@ -31,16 +31,24 @@ namespace Bar.Repositories
 
         foreach (var item in produtos)
         {
-          SqlCommand cmdProd = new SqlCommand();
-          cmdProd.Connection = connection;
+          SqlCommand cmdInsertProd = new SqlCommand();
+          cmdInsertProd.Connection = connection;
 
-          cmdProd.CommandText = "insert into produto_pedido values (@id_pedido, @id_produto, @qtd_vendida, @valor_unitario)";
-          cmdProd.Parameters.AddWithValue("@id_pedido", idPedido);
-          cmdProd.Parameters.AddWithValue("@id_produto", item.IdProduto);
-          cmdProd.Parameters.AddWithValue("@qtd_vendida", item.Quantidade);
-          cmdProd.Parameters.AddWithValue("@valor_unitario", item.Valor);
+          cmdInsertProd.CommandText = "insert into produto_pedido values (@id_pedido, @id_produto, @qtd_vendida, @valor_unitario)";
+          cmdInsertProd.Parameters.AddWithValue("@id_pedido", idPedido);
+          cmdInsertProd.Parameters.AddWithValue("@id_produto", item.IdProduto);
+          cmdInsertProd.Parameters.AddWithValue("@qtd_vendida", item.Quantidade);
+          cmdInsertProd.Parameters.AddWithValue("@valor_unitario", item.Valor);
 
-          cmdProd.ExecuteNonQuery();
+          SqlCommand cmdUpdateProd = new SqlCommand();
+          cmdUpdateProd.Connection = connection;
+
+          cmdUpdateProd.CommandText = "update produto set qtd_estoque = (qtd_estoque - @qtd_estoque) where id_produto = @id";
+          cmdUpdateProd.Parameters.AddWithValue("@qtd_estoque", item.Quantidade);
+          cmdUpdateProd.Parameters.AddWithValue("@id", item.IdProduto);
+
+          cmdUpdateProd.ExecuteNonQuery();
+          cmdInsertProd.ExecuteNonQuery();
         }
 
         //cmd.Parameters.AddWithValue("@id", id);

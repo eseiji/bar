@@ -60,7 +60,7 @@ namespace Bar.Repositories
         cmd.Connection = connection;
 
         //cmd.CommandText = "select us.cpf from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= '@Cpf'";
-        cmd.CommandText = "select pe.valor, pe.data_inclusao, prod.descricao, pr.qtd_vendida, pr.valor_unitario, us.nome from mesa m join pedido pe on (pe.id_mesa = m.id_mesa) join usuario us on (us.id_usuario = pe.id_cliente) join produto_pedido pr on (pr.id_pedido = pe.id_pedido) join produto prod on (prod.id_produto = pr.id_produto) where pe.status = 1 and pe.data_inclusao = CONVERT (date, GETDATE()) and m.id_mesa = @id";
+        cmd.CommandText = "select pe.valor, pe.data_inclusao, prod.descricao, pr.qtd_vendida, pr.valor_unitario, us.nome from mesa m join pedido pe on (pe.id_mesa = m.id_mesa) join usuario us on (us.id_usuario = pe.id_cliente) join produto_pedido pr on (pr.id_pedido = pe.id_pedido) join produto prod on (prod.id_produto = pr.id_produto) where pe.status in (1, 2) and pe.data_inclusao = CONVERT(date, GETDATE()) and m.id_mesa = @id";
 
         cmd.Parameters.AddWithValue("@id", id);
 

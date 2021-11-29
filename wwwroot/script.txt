@@ -37,32 +37,20 @@ where pe.id_cliente = 1 order by pe.data_inclusao desc
 
 select us.cpf, us.id_usuario, us.nome from usuario us join funcionario cli on (us.id_usuario = cli.id_usuario)
 
-
-
 delete from pedido where id_cliente = 1
+select * from pedido where id_mesa = 1
 select * from pedido where id_cliente = 1
-delete from pedido where id_pedido in (5,
-6,
-7,
-8,
-9,
-10,
-11,
-12,
-13,
-14,
-15,
-16,
-17,
-18,
-19,
-20,
-21,
-22,
-23,
-24,
-25,
-26,
-27,
-28,
-29)
+delete from pedido where id_pedido in (30,31,32,33,34,35,36,37,38,39,40)
+update mesa set status = 2 where id_mesa = 1
+
+select m.id_mesa, m.status, pe.valor, pe.data_inclusao, prod.descricao, pr.qtd_vendida, pr.valor_unitario, us.nome
+from mesa m
+join pedido pe
+on (pe.id_mesa = m.id_mesa)
+join usuario us
+on (us.id_usuario = pe.id_cliente)
+join produto_pedido pr
+on (pr.id_pedido = pe.id_pedido)
+join produto prod
+on (prod.id_produto = pr.id_produto)
+where pe.status = 1 and pe.data_inclusao = CONVERT (date, GETDATE())  

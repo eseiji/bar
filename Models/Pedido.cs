@@ -11,6 +11,7 @@ namespace Bar.Models
     public string Cpf { get; set; }*/
     public decimal Valor { get; set; }
     public DateTime Data { get; set; }
+    public int Status { get; set; }
     public int IdMesa { get; set; }
   }
 }
