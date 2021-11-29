@@ -33,7 +33,6 @@ namespace Bar.Repositories
         {
           SqlCommand cmdInsertProd = new SqlCommand();
           cmdInsertProd.Connection = connection;
-
           cmdInsertProd.CommandText = "insert into produto_pedido values (@id_pedido, @id_produto, @qtd_vendida, @valor_unitario)";
           cmdInsertProd.Parameters.AddWithValue("@id_pedido", idPedido);
           cmdInsertProd.Parameters.AddWithValue("@id_produto", item.IdProduto);
@@ -42,13 +41,18 @@ namespace Bar.Repositories
 
           SqlCommand cmdUpdateProd = new SqlCommand();
           cmdUpdateProd.Connection = connection;
-
           cmdUpdateProd.CommandText = "update produto set qtd_estoque = (qtd_estoque - @qtd_estoque) where id_produto = @id";
           cmdUpdateProd.Parameters.AddWithValue("@qtd_estoque", item.Quantidade);
           cmdUpdateProd.Parameters.AddWithValue("@id", item.IdProduto);
 
+          SqlCommand cmdUpdateMesa = new SqlCommand();
+          cmdUpdateMesa.Connection = connection;
+          cmdUpdateMesa.CommandText = "update mesa set status = 2 where id_mesa = @id_mesa";
+          cmdUpdateMesa.Parameters.AddWithValue("@id_mesa", 1);
+
           cmdUpdateProd.ExecuteNonQuery();
           cmdInsertProd.ExecuteNonQuery();
+          cmdUpdateMesa.ExecuteNonQuery();
         }
 
         //cmd.Parameters.AddWithValue("@id", id);

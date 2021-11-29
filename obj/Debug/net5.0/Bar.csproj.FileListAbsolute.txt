@@ -159,3 +159,5 @@ D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Pedido\Carrin
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Usuario\Perfil.cshtml.g.cs
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Mesa\Painel.cshtml.g.cs
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Usuario\Pedido.cshtml.g.cs
+D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Mesa\Pedidos.cshtml.g.cs
+D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Mesa\Mesas.cshtml.g.cs

@@ -16,7 +16,9 @@ namespace Bar.Models
     {
       this.repository = repository;
     }
+    
     private static List<Produto> selecionados = new List<Produto>();
+
     public ActionResult Cardapio(Produto teste)
     {
       List<Produto> produtos = repository.Read();

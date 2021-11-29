@@ -15619,6 +15619,11 @@
   "RootNamespace": "Bar",
   "Documents": [
     {
+      "FilePath": "d:\\.vscodeProjects\\fatec\\testeConexao\\Views\\Mesa\\Pedidos.cshtml",
+      "TargetPath": "Views\\Mesa\\Pedidos.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\.vscodeProjects\\fatec\\testeConexao\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
@@ -15686,6 +15691,11 @@
     {
       "FilePath": "d:\\.vscodeProjects\\fatec\\testeConexao\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\.vscodeProjects\\fatec\\testeConexao\\Views\\Mesa\\Mesas.cshtml",
+      "TargetPath": "Views\\Mesa\\Mesas.cshtml",
       "FileKind": "mvc"
     },
     {

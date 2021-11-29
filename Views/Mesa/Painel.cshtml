@@ -1,44 +1,50 @@
-@model Bar.Models.Mesa
-<link rel="stylesheet" href="~/css/mesa.css" />
+@model Bar.Models.Usuario
+<link rel="stylesheet" href="~/css/cardapio.css" />
 @{
-  ViewBag.Title = "Painel";
-  decimal valor_total = 0;
+  ViewBag.Title = "Perfil";
   int cont = 1;
 }
 
-<div class="container">
-  <h4 style="color: white;">Cliente: @ViewBag.NomeCliente</h4>
-  <h4 style="color: white;">Data: @Convert.ToDateTime(@ViewBag.Data).ToString("dd/MM/yyyy")</h4>
-  <table class="table" style="background: #28282d; color: white; padding: 50px;">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Descrição</th>
-        <th>Quantidade</th>
-        <th>Valor Un.</th>
-      </tr>
-    </thead>
-    <tbody id="tbody">
-      @foreach (var dado in @ViewBag.Dados)
-      {
+<section class="container">
+
+  @if (@ViewBag.Pedidos != null && @ViewBag.Pedidos.Count > 0)
+  {
+    <h2 style="color: white;">Lista de Pedidos</h2>
+    <table class="table" style="background: #28282d; color: white; padding: 100px;">
+      <thead>
         <tr>
-          <td>@cont</td>
-          <td>@dado.Descricao</td>
-          <td>@dado.Quantidade</td>
-          <td>R$ @Math.Round(@dado.ValorUn, 2)</td>
+          <th>#</th>
+          <th>Valor</th>
+          <th>Situação</th>
+          <th>&nbsp</th>
         </tr>
-        valor_total = valor_total + (dado.Quantidade * dado.ValorUn);
-        cont++;
-      }
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>
-          <h3>R$ @Math.Round(@valor_total, 2)</h3>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <a href="/mesa/index" class="btn btn-primary">Voltar</a>
-</div>
+      </thead>
+      <tbody>
+        @foreach (var pedido in @ViewBag.Pedidos)
+        {
+          <tr>
+            <td>@cont</td>
+            <td>R$ @Math.Round(@pedido.Valor, 2)</td>
+            @if (@pedido.Status == 1)
+            {
+              <td>Em andamento</td>
+            }
+            else
+            {
+              <td>Pago</td>
+            }
+            <td><a href="/mesa/visualizarPedido/?id=@pedido.IdPedido&status=@pedido.Status">Visualizar</a></td>
+          </tr>
+          cont++;
+        }
+      </tbody>
+    </table>
+    <a href="/mesa/validarpedido" class="btn btn-sm btn-primary">Validar e encerrar pedidos</a>
+  }
+  else
+  {
+    <h2 style="color: white;">O cliente ainda não realizou nenhum pedido.</h2>
+  }
+
+  <a href="/mesa/index" class="btn btn-sm btn-secondary">Voltar</a>
+</section>

@@ -5,21 +5,28 @@
   ViewBag.Title = "Painel de Controle";
 }
 
-<div class="container">
-  <section class="menu">
-    @foreach (var mesa in @ViewBag.Mesas)
-    {
-      <div class="card">
-        <div class="card-header">
-          <h5>Mesa @mesa.IdMesa</h5>
-          <h5>@mesa.TextoStatus</h5>
-        </div>
-        <div class="card-body">
-          <h6>Usuário:</h6>
-        </div>
-        <a href="/mesa/painel/@mesa.IdMesa" class="btn btn-primary btn-sm">Acessar</a>
-      </div>
-    }
 
-  </section>
+
+<div class="container">
+  @if (@ViewBag.Mesas != null && @ViewBag.Mesas.Count > 0)
+  {
+    <table class="table" style="background: #28282d; color: white; padding: 100px;">
+      <thead>
+        <tr>
+          <th>Nº Mesa</th>
+          <th>Situação</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (var mesa in @ViewBag.Mesas)
+        {
+          <tr>
+            <td>@mesa.IdMesa</td>
+            <td>@mesa.TextoStatus</td>
+            <td><a href="/mesa/painel/@mesa.IdMesa">Acessar</a></td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
 </div>

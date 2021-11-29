@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Text.Json;
 using Bar.Models;
 using Bar.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -13,6 +15,8 @@ namespace Bar.Controllers
     {
       this.repository = repository;
     }
+
+    private static List<Pedido> selecionados = new List<Pedido>();
 
     public ActionResult Index()
     {
@@ -33,16 +37,65 @@ namespace Bar.Controllers
       //return RedirectToAction("Index", "Controle", mesas);
     }
 
+    /*
+        public ActionResult Mesas(int id)
+        {
+          List<Mesa> dados = repository.Read(id);
+          ViewBag.Dados = dados;
+          foreach (var item in dados)
+          {
+            ViewBag.NomeCliente = item.NomeCliente;
+            ViewBag.Data = item.Data;
+          }
+          return View();
+        }
+    */
     public ActionResult Painel(int id)
     {
-      List<Mesa> dados = repository.Read(id);
-      ViewBag.Dados = dados;
-      foreach (var item in dados)
+      if (id == 0)
       {
-        ViewBag.NomeCliente = item.NomeCliente;
-        ViewBag.Data = item.Data;
+        var idTemp = JsonSerializer.Deserialize<Int32>(TempData["idMesa"] as String);
+        //id = idTemp;
+      }
+      else
+      {
+        TempData["idMesa"] = JsonSerializer.Serialize(id);
+      }
+      List<Pedido> pedidos = repository.Pedidos(id);
+      if (pedidos.Count > 0)
+      {
+        ViewBag.Pedidos = pedidos;
+        selecionados = pedidos;
+      }
+      else
+      {
+        selecionados.Clear();
       }
       return View();
     }
+
+    public ActionResult VisualizarPedido(int id, int status)
+    {
+      //TempData["IdPedido"] = JsonSerializer.Serialize(id);
+      List<Produto> produtos = repository.Produtos(id);
+      ViewBag.Produtos = produtos;
+      /*
+      JsonSerializer.Deserialize<Int32>(TempData["StatusPedido"] as String);
+      TempData["StatusPedido"] = JsonSerializer.Serialize(ViewBag.Pedidos[0].Status);*/
+      return View("Pedidos");
+    }
+
+    public ActionResult ValidarPedido()
+    {
+      repository.AtualizarPedido(selecionados);
+      //TempData["IdPedido"] = JsonSerializer.Serialize(id);
+      /*
+      List<Produto> produtos = repository.Produtos(id);
+      ViewBag.Produtos = produtos;
+      JsonSerializer.Deserialize<Int32>(TempData["StatusPedido"] as String);
+      TempData["StatusPedido"] = JsonSerializer.Serialize(ViewBag.Pedidos[0].Status);*/
+      return View("Painel");
+    }
   }
 }
+
