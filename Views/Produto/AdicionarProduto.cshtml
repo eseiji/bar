@@ -1,0 +1,41 @@
+@using Bar.Models
+@model Bar.Models.Produto
+<link rel="stylesheet" href="~/css/mesa.css" />
+@{
+  ViewBag.Title = "Painel de Controle";
+}
+
+<header>
+  <nav class="navbar navbar-expand-lg border-bottom border-dark box-shadow" style="padding: 8px 20px">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="navbar-brand text-white" href="#">Bar<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<div class="container">
+  <form asp-controller="Produto" asp-action="AdicionarProduto" method="POST">
+    <div class="input-group">
+      <input type="text" name="Descricao" placeholder="Descricao do produto" asp-for="Descricao" class="form-control"
+        required autofocus />
+    </div>
+    <select class="form-select" style="color: #555;" name="TipoProduto" asp-for="TipoProduto" required>
+      <option value="" selected>Selecione o tipo do produto</option>
+      <option value="1">Comida</option>
+      <option value="2">Bebida</option>
+    </select>
+    <div class="input-group">
+      <input type="number" name="Estoque" placeholder="Quantidade em estoque" asp-for="Estoque" min="1"
+        class="form-control" required />
+    </div>
+    <div class="input-group">
+      <input type="text" name="Valor" placeholder="Valor do produto" asp-for="Valor" class="form-control" required />
+    </div>
+    <button class="btn btn-sm btn-primary">Salvar</button>
+    <a href="/produto/estoque" class="btn btn-sm btn-secondary">Voltar</a>
+  </form>
+</div>

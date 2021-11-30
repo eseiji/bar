@@ -1,8 +1,7 @@
 @model Bar.Models.Usuario
 <link rel="stylesheet" href="~/css/cardapio.css" />
 @{
-  ViewBag.Title = "Perfil";
-  decimal valor_total = 0;
+  ViewBag.Title = "Estoque";
   int cont = 1;
 }
 
@@ -24,42 +23,41 @@
 </header>
 
 <section class="container">
-  <h2 style="color: white;">Lista de Produtos</h2>
+  <h2 style="color: white;">Estoque</h2>
 
-  @if (@ViewBag.Produtos != null && @ViewBag.Produtos.Count > 0)
+  @if (@ViewBag.Estoque != null && @ViewBag.Estoque.Count > 0)
   {
     <table class="table table-hover table-dark" style="background: #28282d; color: white; padding: 100px;">
       <thead>
         <tr>
           <th>#</th>
           <th>Descricao</th>
-          <th>Quantidade</th>
-          <th>Valor Un.</th>
+          <th>Qtd</th>
+          <th>Valor Un</th>
+          <th>Data Inclusao</th>
+          <th>Status</th>
+          <th>&nbsp</th>
         </tr>
       </thead>
       <tbody>
-        @foreach (var produto in @ViewBag.Produtos)
+        @foreach (var produto in @ViewBag.Estoque)
         {
           <tr>
             <td>@cont</td>
             <td>@produto.Descricao</td>
-            <td>@produto.Quantidade</td>
+            <td>@produto.Estoque</td>
             <td>R$ @Math.Round(@produto.Valor, 2)</td>
+            <td>@Convert.ToDateTime(@produto.DataInclusao).ToString("dd/MM/yyyy")</td>
+            <td>@produto.Status</td>
+            <td><a href="/produto/editarProduto/@produto.IdProduto" class="btn btn-sm btn-secondary">Editar</a>&nbsp<a
+            href="/produto/excluirProduto/@produto.IdProduto" class="btn btn-sm btn-danger">Excluir</a></td>
           </tr>
-          valor_total = valor_total + (produto.Quantidade * produto.Valor);
           cont++;
         }
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>
-            <h3>R$ @Math.Round(@valor_total, 2)</h3>
-          </td>
-        </tr>
+
       </tbody>
     </table>
-    <!--<a href="/mesa/painel" class="btn btn-sm btn-secondary">Voltar</a>-->
-    <a href="javascript:history.go(-1)" class="btn btn-sm btn-secondary">Voltar</a>
+    <a href="/produto/adicionarProduto" class="btn btn-sm btn-primary">Adicionar produto</a>
+    <a href="/mesa/index" class="btn btn-sm btn-secondary">Voltar</a>
   }
 </section>

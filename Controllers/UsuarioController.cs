@@ -32,31 +32,28 @@ namespace Bar.Controllers
 
       if (usuario == null)
       {
-        Console.WriteLine("Usuário não encontrado!");
         ViewBag.Message = "Usuário não encontrado!";
       }
       else
       {
+        HttpContext.Session.SetInt32("IdUsuario", usuario.IdUsuario);
+        HttpContext.Session.SetString("NomeUsuario", usuario.Nome);
         if (model.Tipo == "cliente")
         {
-          HttpContext.Session.SetInt32("IdCliente", usuario.IdUsuario);
-          HttpContext.Session.SetString("NomeCliente", usuario.Nome);
-          //return RedirectToAction("Cardapio", "Produto");
           return RedirectToAction("Perfil");
         }
         if (model.Tipo == "funcionario")
         {
           return RedirectToAction("Index", "Mesa");
         }
-        Console.WriteLine("Usuário encontrado!");
       }
 
       return View();
     }
     public ActionResult Perfil()
     {
-      var id = HttpContext.Session.GetInt32("IdCliente");
-      var nome = HttpContext.Session.GetString("NomeCliente");
+      var id = HttpContext.Session.GetInt32("IdUsuario");
+      var nome = HttpContext.Session.GetString("NomeUsuario");
       List<Pedido> pedidos = repository.Pedidos((int)id);
       if (pedidos.Count > 0)
       {

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Web;
 using System.Text.Json;
+using System.Reflection.Metadata;
 
 namespace Bar.Models
 {
@@ -16,7 +17,7 @@ namespace Bar.Models
     {
       this.repository = repository;
     }
-    
+
     private static List<Produto> selecionados = new List<Produto>();
 
     public ActionResult Cardapio(Produto teste)
@@ -26,16 +27,6 @@ namespace Bar.Models
       if (teste.Descricao != null)
       {
         selecionados.Add(teste);
-        /*
-        if (selecionados[0].Descricao == null)
-        {
-          selecionados.RemoveAt(0);
-          ViewBag.testeFinal = null;
-        }
-        else
-        {
-          ViewBag.testeFinal = selecionados;
-        }*/
       }
       if (TempData["finalizado"] != null)
       {
@@ -52,6 +43,13 @@ namespace Bar.Models
       return View();
     }
 
+    public ActionResult Estoque()
+    {
+      List<Produto> produtos = repository.Estoque();
+      ViewBag.Estoque = produtos;
+      return View();
+    }
+
     public ActionResult selecionarProduto(int id)
     {
       List<Produto> teste = repository.Query(id);
@@ -59,18 +57,6 @@ namespace Bar.Models
 
       return RedirectToAction("Cardapio", teste[teste.Count - 1]);
     }
-    /*CRIAR BOTÃO, CHAMAR MÉTODO PARA INCREMENTAR QUANTIDADE.
-    PARA CADA ITEM DA LISTA "SELECIONADOS", COMPARAR COM O ID TRAZIDO PELO BOTÃO E ADICIONAR A QUANTIDADE*/
-
-    /*
-        public ActionResult Create(int id)
-        {
-          //List<Produto> teste2 = repository.Query(id);
-          List<int> teste = repository.Create(id);
-          ViewBag.teste = teste;
-          //ViewBag.teste2 = teste2;
-          return RedirectToAction("Cardapio");
-        }*/
 
     public ActionResult incrementoQtd(int id)
     {
@@ -124,20 +110,35 @@ namespace Bar.Models
       return RedirectToAction("Cardapio");
     }
 
-    /*    public void CarrinhoTeste(List<int> produtosTeste)
-        {
-          Console.WriteLine("PASSOU");
-          /*
-          var produto = repository.Read(id);
-          Console.WriteLine("Passou");
-          return View(produto);
-        }
-    */
-    [HttpPost]
-    public void TesteQtd(List<int> qtd)
+    public ActionResult AdicionarProduto()
     {
-      //repository.InserirProduto(model);
-      Console.WriteLine(qtd);
+      return View();
+    }
+
+    [HttpPost]
+    public ActionResult AdicionarProduto(Produto produto)
+    {
+      repository.AdicionarProduto(produto);
+      return RedirectToAction("Estoque", "Produto");
+    }
+
+    public ActionResult EditarProduto(int id)
+    {
+      Produto produto = repository.BuscarProduto(id);
+      return View(produto);
+    }
+
+    [HttpPost]
+    public ActionResult EditarProduto(int id, Produto produto)
+    {
+      repository.EditarProduto(id, produto);
+      return RedirectToAction("Estoque", "Produto");
+    }
+
+    public ActionResult ExcluirProduto(int id)
+    {
+      repository.ExcluirProduto(id);
+      return RedirectToAction("Estoque", "Produto");
     }
   }
 }

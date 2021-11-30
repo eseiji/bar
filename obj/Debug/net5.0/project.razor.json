@@ -15644,6 +15644,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\.vscodeProjects\\fatec\\testeConexao\\Views\\Produto\\EditarProduto.cshtml",
+      "TargetPath": "Views\\Produto\\EditarProduto.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\.vscodeProjects\\fatec\\testeConexao\\Views\\Produto\\Estoque.cshtml",
+      "TargetPath": "Views\\Produto\\Estoque.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\.vscodeProjects\\fatec\\testeConexao\\Views\\Bar\\Cardapio.cshtml",
       "TargetPath": "Views\\Bar\\Cardapio.cshtml",
       "FileKind": "mvc"
@@ -15671,6 +15681,11 @@
     {
       "FilePath": "d:\\.vscodeProjects\\fatec\\testeConexao\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\.vscodeProjects\\fatec\\testeConexao\\Views\\Produto\\AdicionarProduto.cshtml",
+      "TargetPath": "Views\\Produto\\AdicionarProduto.cshtml",
       "FileKind": "mvc"
     },
     {

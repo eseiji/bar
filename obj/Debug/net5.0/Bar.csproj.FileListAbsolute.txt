@@ -161,3 +161,6 @@ D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Mesa\Painel.c
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Usuario\Pedido.cshtml.g.cs
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Mesa\Pedidos.cshtml.g.cs
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Mesa\Mesas.cshtml.g.cs
+D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Produto\AdicionarProduto.cshtml.g.cs
+D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Produto\Estoque.cshtml.g.cs
+D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Produto\EditarProduto.cshtml.g.cs

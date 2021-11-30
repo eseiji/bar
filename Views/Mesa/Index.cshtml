@@ -5,16 +5,36 @@
   ViewBag.Title = "Painel de Controle";
 }
 
-
+<header>
+  <nav class="navbar navbar-expand-lg border-bottom border-dark box-shadow" style="padding: 8px 20px">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="navbar-brand text-white" href="#">Bar<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link text-white" asp-controller="Produto" asp-action="Estoque">Estoque</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" asp-controller="Usuario" asp-action="Login">Sair</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
 
 <div class="container">
+  <h2 style="color: white;">Colaborador: @ViewBag.Nome</h2>
   @if (@ViewBag.Mesas != null && @ViewBag.Mesas.Count > 0)
   {
-    <table class="table" style="background: #28282d; color: white; padding: 100px;">
+    <table class="table table-hover table-dark" style="background: #28282d; color: white; padding: 100px;">
       <thead>
         <tr>
           <th>Nº Mesa</th>
           <th>Situação</th>
+          <th>&nbsp</th>
         </tr>
       </thead>
       <tbody>

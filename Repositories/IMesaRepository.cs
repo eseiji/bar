@@ -9,6 +9,6 @@ namespace Bar.Repositories
     List<Mesa> Read(int id);
     List<Pedido> Pedidos(int id);
     List<Produto> Produtos(int id);
-    void AtualizarPedido(List<Pedido> pedidos);
+    void AtualizarPedido(int id, List<Pedido> pedidos);
   }
 }

@@ -5,7 +5,7 @@ namespace Bar.Repositories
 {
   public interface IPedidoRepository
   {
-    void Create(List<Produto> produto);
+    void Create(int id, List<Produto> produto);
     /*
     List<Produto> Read(int id);
     Pedido Read();

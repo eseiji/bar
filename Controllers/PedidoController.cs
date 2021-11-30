@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json;
 using Bar.Repositories;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bar.Models
@@ -36,8 +37,9 @@ namespace Bar.Models
 
     public ActionResult Finalizar()
     {
+      var id = HttpContext.Session.GetInt32("IdUsuario");
       var selecionados = JsonSerializer.Deserialize<List<Produto>>(TempData["selecionados"] as String);
-      repository.Create(selecionados);
+      repository.Create((int)id, selecionados);
       TempData["finalizado"] = JsonSerializer.Serialize("true");
       return RedirectToAction("Cardapio", "Produto");
     }

@@ -139,7 +139,7 @@ namespace Bar.Repositories
         }
         if (Tipo == "funcionario")
         {
-          cmd.CommandText = "select us.cpf from usuario us join funcionario func on (us.id_usuario = func.id_usuario) where us.cpf= @Cpf";
+          cmd.CommandText = "select us.cpf, us.id_usuario, us.nome from usuario us join funcionario func on (us.id_usuario = func.id_usuario) where us.cpf= @Cpf";
         }
 
         cmd.Parameters.AddWithValue("@cpf", Cpf);
@@ -155,11 +155,8 @@ namespace Bar.Repositories
         {
           Usuario usuario = new Usuario();
           usuario.Cpf = Reader.GetString(0);
-          if (Tipo == "cliente")
-          {
-            usuario.IdUsuario = Reader.GetInt32(1);
-            usuario.Nome = Reader.GetString(2);
-          }
+          usuario.IdUsuario = Reader.GetInt32(1);
+          usuario.Nome = Reader.GetString(2);
 
           return usuario;
         }

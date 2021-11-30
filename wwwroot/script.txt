@@ -41,7 +41,7 @@ delete from pedido where id_cliente = 1
 select * from pedido where id_mesa = 1
 select * from pedido where id_cliente = 1
 delete from pedido where id_pedido in (30,31,32,33,34,35,36,37,38,39,40)
-update mesa set status = 2 where id_mesa = 1
+update pedido set status = 2 where id_pedido in (41, 43)
 
 select m.id_mesa, m.status, pe.valor, pe.data_inclusao, prod.descricao, pr.qtd_vendida, pr.valor_unitario, us.nome
 from mesa m
@@ -54,3 +54,20 @@ on (pr.id_pedido = pe.id_pedido)
 join produto prod
 on (prod.id_produto = pr.id_produto)
 where pe.status = 1 and pe.data_inclusao = CONVERT (date, GETDATE())  
+
+select id_produto, descricao, valor, qtd_estoque, tipo_produto from produto where id_produto = 6 and qtd_estoque > 0
+update produto set qtd_estoque = 3 where id_produto = 2
+
+update produto set qtd_estoque = (qtd_estoque - 30) where id_produto = 7
+
+select pe.valor, pe.data_inclusao, prod.descricao, pr.qtd_vendida, pr.valor_unitario, pe.status
+from pedido pe join produto_pedido pr
+on (pr.id_pedido = pe.id_pedido)
+join produto prod
+on (prod.id_produto = pr.id_produto)
+where pe.status = 2 and pe.id_pedido = 43
+
+select * from produto_pedido
+
+select * from mesa
+update pedido set status = 3 where id_pedido = @id

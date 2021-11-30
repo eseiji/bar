@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text.Json;
 using Bar.Models;
 using Bar.Repositories;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bar.Controllers
@@ -20,6 +21,9 @@ namespace Bar.Controllers
 
     public ActionResult Index()
     {
+      var nome = HttpContext.Session.GetString("NomeUsuario");
+      ViewBag.Nome = nome;
+
       List<Mesa> mesas = repository.Read();
       ViewBag.Mesas = mesas;
       foreach (var item in mesas)
@@ -34,24 +38,10 @@ namespace Bar.Controllers
         }
       }
       return View();
-      //return RedirectToAction("Index", "Controle", mesas);
     }
-
-    /*
-        public ActionResult Mesas(int id)
-        {
-          List<Mesa> dados = repository.Read(id);
-          ViewBag.Dados = dados;
-          foreach (var item in dados)
-          {
-            ViewBag.NomeCliente = item.NomeCliente;
-            ViewBag.Data = item.Data;
-          }
-          return View();
-        }
-    */
     public ActionResult Painel(int id)
     {
+      /*
       if (id == 0)
       {
         var idTemp = JsonSerializer.Deserialize<Int32>(TempData["idMesa"] as String);
@@ -62,7 +52,7 @@ namespace Bar.Controllers
       {
         TempData["idMesa"] = null;
         TempData["idMesa"] = JsonSerializer.Serialize(id);
-      }
+      }*/
       List<Pedido> pedidos = repository.Pedidos(id);
       if (pedidos.Count > 0)
       {
@@ -87,9 +77,12 @@ namespace Bar.Controllers
       return View("Pedidos");
     }
 
+
     public ActionResult ValidarPedido()
     {
-      repository.AtualizarPedido(selecionados);
+
+      var id = HttpContext.Session.GetInt32("IdUsuario");
+      repository.AtualizarPedido((int)id, selecionados);
       //TempData["IdPedido"] = JsonSerializer.Serialize(id);
       /*
       List<Produto> produtos = repository.Produtos(id);
@@ -97,6 +90,17 @@ namespace Bar.Controllers
       JsonSerializer.Deserialize<Int32>(TempData["StatusPedido"] as String);
       TempData["StatusPedido"] = JsonSerializer.Serialize(ViewBag.Pedidos[0].Status);*/
       return View("Painel");
+    }
+
+    public ActionResult AdicionarProduto()
+    {
+      return View();
+    }
+
+    [HttpPost]
+    public ActionResult AdicionarProduto(Produto produto)
+    {
+      return View();
     }
   }
 }

@@ -8,7 +8,7 @@ namespace Bar.Repositories
 {
   public class PedidoRepository : BDContext, IPedidoRepository
   {
-    public void Create(List<Produto> produtos)
+    public void Create(int id, List<Produto> produtos)
     {
       try
       {
@@ -23,9 +23,10 @@ namespace Bar.Repositories
         }
 
         //cmd.CommandText = "select us.cpf from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= '@Cpf'";
-        cmd.CommandText = "insert into pedido (valor, data_inclusao, status, id_mesa, id_cliente, id_funcionario) values (@valor, GETDATE(), 1, 1, 1, 1)" + "select @@IDENTITY";
+        cmd.CommandText = "insert into pedido (valor, data_inclusao, status, id_mesa, id_cliente) values (@valor, GETDATE(), 1, 1, @id_cliente)" + "select @@IDENTITY";
 
         cmd.Parameters.AddWithValue("@valor", valor_total); //AJUSTAR ===================================================
+        cmd.Parameters.AddWithValue("@id_cliente", id);
 
         int idPedido = Convert.ToInt32(cmd.ExecuteScalar());
 

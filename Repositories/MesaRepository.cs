@@ -192,7 +192,7 @@ namespace Bar.Repositories
       }
     }
 
-    public void AtualizarPedido(List<Pedido> pedidos)
+    public void AtualizarPedido(int id, List<Pedido> pedidos)
     {
       try
       {
@@ -201,8 +201,9 @@ namespace Bar.Repositories
         {
           SqlCommand cmd = new SqlCommand();
           cmd.Connection = connection;
-          cmd.CommandText = "update pedido set status = 3 where id_pedido = @id";
-          cmd.Parameters.AddWithValue("@id", item.IdPedido);
+          cmd.CommandText = "update pedido set status = 3, id_funcionario = @id_funcionario where id_pedido = @id_pedido";
+          cmd.Parameters.AddWithValue("@id_funcionario", id);
+          cmd.Parameters.AddWithValue("@id_pedido", item.IdPedido);
 
 
           SqlCommand cmdUpdateMesa = new SqlCommand();
