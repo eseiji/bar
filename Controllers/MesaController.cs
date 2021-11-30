@@ -55,10 +55,12 @@ namespace Bar.Controllers
       if (id == 0)
       {
         var idTemp = JsonSerializer.Deserialize<Int32>(TempData["idMesa"] as String);
-        //id = idTemp;
+        id = idTemp;
+        TempData["idMesa"] = JsonSerializer.Serialize(id);
       }
       else
       {
+        TempData["idMesa"] = null;
         TempData["idMesa"] = JsonSerializer.Serialize(id);
       }
       List<Pedido> pedidos = repository.Pedidos(id);
