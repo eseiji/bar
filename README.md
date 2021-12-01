@@ -1,1 +1,1 @@
-# Projeto bar - interdisciplinar
+# PROJETO INTERDISCIPLINAR - BAR
