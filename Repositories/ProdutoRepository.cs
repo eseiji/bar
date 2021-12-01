@@ -73,7 +73,7 @@ namespace Bar.Repositories
           Produto produto = new Produto();
           produto.IdProduto = Reader.GetInt32("id_produto");
           produto.Descricao = Reader.GetString("descricao");
-          produto.Valor = Reader.GetDecimal("valor");
+          produto.Valor = Math.Round(Reader.GetDecimal("valor"), 2);
           produto.TipoProduto = Reader.GetInt32("tipo_produto");
           produto.Estoque = Reader.GetInt32("qtd_estoque");
           produto.Status = Reader.GetInt32("status");
@@ -330,12 +330,12 @@ namespace Bar.Repositories
       {
         SqlCommand cmd = new SqlCommand();
         cmd.Connection = connection;
-        /*
-        cmd.CommandText = "update produto set status = 2 where id_produto = @id_produto";
-        cmd.Parameters.AddWithValue("@id_produto", id);*/
 
-        cmd.CommandText = "delete from produto where id_produto = @id_produto";
+        cmd.CommandText = "update produto set status = 2 where id_produto = @id_produto";
         cmd.Parameters.AddWithValue("@id_produto", id);
+        /*
+                cmd.CommandText = "delete from produto where id_produto = @id_produto";
+                cmd.Parameters.AddWithValue("@id_produto", id);*/
         cmd.ExecuteNonQuery();
       }
       catch (Exception ex)

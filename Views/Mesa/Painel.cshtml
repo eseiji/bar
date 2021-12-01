@@ -23,10 +23,11 @@
 </header>
 
 <section class="container">
-
+  <h5 style="color: white;">Lista de Pedidos</h5>
+  <hr
+    style="border: 0; height: 0; border-top: 1px solid rgba(0, 0, 0, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.3);">
   @if (@ViewBag.Pedidos != null && @ViewBag.Pedidos.Count > 0)
   {
-    <h2 style="color: white;">Lista de Pedidos</h2>
     <table class="table table-hover table-dark" style="background: #28282d; color: white; padding: 100px;">
       <thead>
         <tr>
@@ -50,7 +51,8 @@
             {
               <td>Pago</td>
             }
-            <td><a href="/mesa/visualizarPedido/?id=@pedido.IdPedido&status=@pedido.Status">Visualizar</a></td>
+            <td><a href="/mesa/visualizarPedido/?id=@pedido.IdPedido&status=@pedido.Status"
+            class="btn btn-sm btn-secondary">Visualizar</a></td>
           </tr>
           cont++;
         }
@@ -60,7 +62,9 @@
   }
   else
   {
-    <h2 style="color: white;">O cliente ainda não realizou nenhum pedido.</h2>
+    <div class="alert alert-danger" role="alert">
+      O cliente ainda não realizou nenhum pedido.
+    </div>
   }
 
   <a href="/mesa/index" class="btn btn-sm btn-secondary">Voltar</a>

@@ -26,7 +26,9 @@
 </header>
 
 <section class="container">
-  <h2 style="color: white;">@ViewBag.Nome - Lista de Pedidos</h2>
+  <h5 style="color: white;">@ViewBag.Nome - Lista de Pedidos</h5>
+  <hr
+    style="border: 0; height: 0; border-top: 1px solid rgba(0, 0, 0, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.3);">
 
   @if (@ViewBag.Pedidos != null && @ViewBag.Pedidos.Count > 0)
   {
@@ -58,7 +60,8 @@
             {
               <td>Pago</td>
             }
-            <td><a href="/usuario/visualizarPedido/?id=@pedido.IdPedido&status=@pedido.Status">Visualizar</a></td>
+            <td><a href="/usuario/visualizarPedido/?id=@pedido.IdPedido&status=@pedido.Status"
+            class="btn btn-sm btn-secondary">Visualizar</a></td>
           </tr>
           cont++;
         }

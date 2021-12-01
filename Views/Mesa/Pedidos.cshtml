@@ -24,7 +24,9 @@
 </header>
 
 <section class="container">
-  <h2 style="color: white;">Lista de Produtos</h2>
+  <h5 style="color: white;">Lista de Produtos</h5>
+  <hr
+    style="border: 0; height: 0; border-top: 1px solid rgba(0, 0, 0, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.3);">
 
   @if (@ViewBag.Produtos != null && @ViewBag.Produtos.Count > 0)
   {
@@ -32,7 +34,7 @@
       <thead>
         <tr>
           <th>#</th>
-          <th>Descricao</th>
+          <th>Descricão</th>
           <th>Quantidade</th>
           <th>Valor Un.</th>
         </tr>

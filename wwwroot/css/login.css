@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +13,7 @@ header {
 
 body {
   background: #303038;
+  font-family: "Poppins", sans-serif;
 }
 
 footer {
@@ -30,7 +32,7 @@ footer {
   margin: auto;
 }
 
-.cpf {
+.dados {
   background: #28282d;
   color: white;
   padding: 1rem 1rem;
@@ -40,6 +42,11 @@ footer {
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 1rem;
+}
+
+.title {
+  display: flex;
+  text-align: center;
 }
 
 .input-group input {

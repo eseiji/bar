@@ -23,26 +23,44 @@
 </header>
 
 <div class="container">
+  <h5 style="color: white;">Edição de Produto</h5>
+  <hr
+    style="border: 0; height: 0; border-top: 1px solid rgba(0, 0, 0, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.3);">
   <form asp-controller="Produto" asp-action="EditarProduto" method="POST">
-    <div class="input-group">
-      <input type="text" name="Descricao" placeholder="Descricao do produto" asp-for="Descricao" class="form-control"
-        required autofocus />
+    <div class="form-row">
+      <div class="form-group col-md-8">
+        <label class="text-light" style="font-size: 13px;">Descrição</label>
+        <input type="text" name="Descricao" placeholder="Descricao do produto" asp-for="Descricao" class="form-control"
+          required autofocus />
+      </div>
+      <div class="form-group col-md-4">
+        <label class="text-light" style="font-size: 13px;">Tipo do Produto</label>
+        <select class="form-control" style="color: #555;" name="TipoProduto" asp-for="TipoProduto" required>
+          <option value="" selected>Selecione o tipo do produto</option>
+          <option value="1">Comida</option>
+          <option value="2">Bebida</option>
+        </select>
+      </div>
     </div>
-    <select class="form-select" style="color: #555;" name="TipoProduto" asp-for="TipoProduto" required>
-      <option value="" selected>Selecione o tipo do produto</option>
-      <option value="1">Comida</option>
-      <option value="2">Bebida</option>
-    </select>
-    <div class="input-group">
-      <input type="number" name="Status" placeholder="Status" asp-for="Status" min="1" class="form-control" required />
-    </div>
-    <div class="input-group">
-      <input type="number" name="Estoque" placeholder="Quantidade em estoque" asp-for="Estoque" min="1"
-        class="form-control" required />
-    </div>
-    <div class="input-group">
-      <input type="text" name="Valor" placeholder="Valor do produto" asp-for="Valor" class="form-control" maxlength="11"
-        required />
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label class="text-light" style="font-size: 13px;">Status</label>
+        <select class="form-control" style="color: #555;" name="Status" asp-for="Status" required>
+          <option value="" selected>Status do produto</option>
+          <option value="1">Válido</option>
+          <option value="2">Inválido</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label class="text-light" style="font-size: 13px;">Quantidade em Estoque</label>
+        <input type="number" name="Estoque" placeholder="Quantidade em estoque" asp-for="Estoque" min="1"
+          class="form-control" required />
+      </div>
+      <div class="form-group col-md-4">
+        <label class="text-light" style="font-size: 13px;">Valor Unitário</label>
+        <input type="text" name="Valor" placeholder="Valor do produto" asp-for="Valor" class="form-control"
+          maxlength="11" required />
+      </div>
     </div>
     <button class="btn btn-sm btn-primary">Salvar</button>
     <a href="/produto/estoque" class="btn btn-sm btn-secondary">Voltar</a>

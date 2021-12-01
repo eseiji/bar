@@ -1,6 +1,6 @@
 @using Bar.Models
 @model Bar.Models.Produto
-<link rel="stylesheet" href="~/css/mesa.css" />
+<link rel="stylesheet" href="~/css/produto.css" />
 @{
   ViewBag.Title = "Painel de Controle";
 }
@@ -18,22 +18,38 @@
 </header>
 
 <div class="container">
+  <h5 style="color: white;">Novo Produto</h5>
+  <hr
+    style="border: 0; height: 0; border-top: 1px solid rgba(0, 0, 0, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.3);">
   <form asp-controller="Produto" asp-action="AdicionarProduto" method="POST">
-    <div class="input-group">
-      <input type="text" name="Descricao" placeholder="Descricao do produto" asp-for="Descricao" class="form-control"
-        required autofocus />
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <div class="input-group">
+          <input type="text" name="Descricao" placeholder="Descricao do produto" asp-for="Descricao"
+            class="form-control" required autofocus />
+        </div>
+      </div>
     </div>
-    <select class="form-select" style="color: #555;" name="TipoProduto" asp-for="TipoProduto" required>
-      <option value="" selected>Selecione o tipo do produto</option>
-      <option value="1">Comida</option>
-      <option value="2">Bebida</option>
-    </select>
-    <div class="input-group">
-      <input type="number" name="Estoque" placeholder="Quantidade em estoque" asp-for="Estoque" min="1"
-        class="form-control" required />
-    </div>
-    <div class="input-group">
-      <input type="text" name="Valor" placeholder="Valor do produto" asp-for="Valor" class="form-control" required />
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <select class="form-control" style="color: #555;" name="TipoProduto" asp-for="TipoProduto" required>
+          <option value="" selected>Selecione o tipo do produto</option>
+          <option value="1">Comida</option>
+          <option value="2">Bebida</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <div class="input-group">
+          <input type="number" name="Estoque" placeholder="Quantidade em estoque" asp-for="Estoque" min="1"
+            class="form-control" required />
+        </div>
+      </div>
+      <div class="form-group col-md-4">
+        <div class="input-group">
+          <input type="text" name="Valor" placeholder="Valor do produto" asp-for="Valor" class="form-control"
+            required />
+        </div>
+      </div>
     </div>
     <button class="btn btn-sm btn-primary">Salvar</button>
     <a href="/produto/estoque" class="btn btn-sm btn-secondary">Voltar</a>
