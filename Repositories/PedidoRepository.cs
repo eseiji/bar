@@ -21,11 +21,9 @@ namespace Bar.Repositories
         {
           valor_total = valor_total + (item.Quantidade * item.Valor);
         }
-
-        //cmd.CommandText = "select us.cpf from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= '@Cpf'";
         cmd.CommandText = "insert into pedido (valor, data_inclusao, status, id_mesa, id_cliente) values (@valor, GETDATE(), 1, 1, @id_cliente)" + "select @@IDENTITY";
 
-        cmd.Parameters.AddWithValue("@valor", valor_total); //AJUSTAR ===================================================
+        cmd.Parameters.AddWithValue("@valor", valor_total);
         cmd.Parameters.AddWithValue("@id_cliente", id);
 
         int idPedido = Convert.ToInt32(cmd.ExecuteScalar());
@@ -55,14 +53,10 @@ namespace Bar.Repositories
           cmdInsertProd.ExecuteNonQuery();
           cmdUpdateMesa.ExecuteNonQuery();
         }
-
-        //cmd.Parameters.AddWithValue("@id", id);
       }
       catch (Exception ex)
       {
         throw new Exception(ex.Message);
-        //Console.WriteLine(ex.Message);
-        //return null;
       }
       finally
       {

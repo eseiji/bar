@@ -6,9 +6,6 @@ namespace Bar.Models
   {
     public int IdPedido { get; set; }
     public int IdCliente { get; set; }
-    /*
-    public string NomeUsuario { get; set; }
-    public string Cpf { get; set; }*/
     public decimal Valor { get; set; }
     public DateTime Data { get; set; }
     public int Status { get; set; }

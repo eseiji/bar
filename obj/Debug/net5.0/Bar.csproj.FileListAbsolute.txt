@@ -132,18 +132,11 @@ D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\scopedcss\bundle\Bar.styl
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Bar.TagHelpers.input.cache
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Bar.TagHelpers.output.cache
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Bar.RazorCoreGenerate.cache
-D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Bar\Cardapio.cshtml.g.cs
-D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Bar\Index.cshtml.g.cs
-D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Controle\Index.cshtml.g.cs
-D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Mesa\Index.cshtml.g.cs
-D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Pedido\Index.cshtml.g.cs
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Produto\Cardapio.cshtml.g.cs
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
-D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Usuario\Admin.cshtml.g.cs
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Usuario\Login.cshtml.g.cs
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
@@ -160,7 +153,6 @@ D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Usuario\Perfi
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Mesa\Painel.cshtml.g.cs
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Usuario\Pedido.cshtml.g.cs
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Mesa\Pedidos.cshtml.g.cs
-D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Mesa\Mesas.cshtml.g.cs
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Produto\AdicionarProduto.cshtml.g.cs
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Produto\Estoque.cshtml.g.cs
 D:\.vscodeProjects\fatec\testeConexao\obj\Debug\net5.0\Razor\Views\Produto\EditarProduto.cshtml.g.cs

@@ -41,18 +41,6 @@ namespace Bar.Controllers
     }
     public ActionResult Painel(int id)
     {
-      /*
-      if (id == 0)
-      {
-        var idTemp = JsonSerializer.Deserialize<Int32>(TempData["idMesa"] as String);
-        id = idTemp;
-        TempData["idMesa"] = JsonSerializer.Serialize(id);
-      }
-      else
-      {
-        TempData["idMesa"] = null;
-        TempData["idMesa"] = JsonSerializer.Serialize(id);
-      }*/
       List<Pedido> pedidos = repository.Pedidos(id);
       if (pedidos.Count > 0)
       {
@@ -68,27 +56,16 @@ namespace Bar.Controllers
 
     public ActionResult VisualizarPedido(int id, int status)
     {
-      //TempData["IdPedido"] = JsonSerializer.Serialize(id);
       List<Produto> produtos = repository.Produtos(id);
       ViewBag.Produtos = produtos;
-      /*
-      JsonSerializer.Deserialize<Int32>(TempData["StatusPedido"] as String);
-      TempData["StatusPedido"] = JsonSerializer.Serialize(ViewBag.Pedidos[0].Status);*/
       return View("Pedidos");
     }
 
 
     public ActionResult ValidarPedido()
     {
-
       var id = HttpContext.Session.GetInt32("IdUsuario");
       repository.AtualizarPedido((int)id, selecionados);
-      //TempData["IdPedido"] = JsonSerializer.Serialize(id);
-      /*
-      List<Produto> produtos = repository.Produtos(id);
-      ViewBag.Produtos = produtos;
-      JsonSerializer.Deserialize<Int32>(TempData["StatusPedido"] as String);
-      TempData["StatusPedido"] = JsonSerializer.Serialize(ViewBag.Pedidos[0].Status);*/
       return View("Painel");
     }
 

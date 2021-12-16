@@ -6,11 +6,5 @@ namespace Bar.Repositories
   public interface IPedidoRepository
   {
     void Create(int id, List<Produto> produto);
-    /*
-    List<Produto> Read(int id);
-    Pedido Read();
-    void Update(int id, Pedido model);
-    void Delete(int id);*/
-    //Pedido Read();
   }
 }

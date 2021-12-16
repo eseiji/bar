@@ -27,7 +27,7 @@ namespace Bar
       services.AddTransient<IProdutoRepository, ProdutoRepository>();
       services.AddTransient<IMesaRepository, MesaRepository>();
       services.AddTransient<IPedidoRepository, PedidoRepository>();
-      services.AddTransient<UsuarioDatabaseRepository>();
+      services.AddTransient<IUsuarioRepository, UsuarioRepository>();
       services.AddControllersWithViews();
 
       services.AddSession(options =>

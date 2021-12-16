@@ -8,6 +8,7 @@ namespace Bar.Repositories
 {
   public class ProdutoRepository : BDContext, IProdutoRepository
   {
+    private static List<Produto> produtos = new List<Produto>();
     public List<Produto> Read()
     {
       try
@@ -17,13 +18,10 @@ namespace Bar.Repositories
         SqlCommand cmd = new SqlCommand();
         cmd.Connection = connection;
 
-        //cmd.CommandText = "select us.cpf from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= '@Cpf'";
         cmd.CommandText = "select id_produto, descricao, valor, tipo_produto from produto where qtd_estoque > 0 and status = 1";
 
         SqlCommand cmdProduto = new SqlCommand();
         cmdProduto.Connection = connection;
-
-        //cmd.Parameters.AddWithValue("@cpf", Cpf);
 
         SqlDataReader Reader = cmd.ExecuteReader();
 
@@ -46,8 +44,6 @@ namespace Bar.Repositories
       catch (Exception ex)
       {
         throw new Exception(ex.Message);
-        //Console.WriteLine(ex.Message);
-        //return null;
       }
       finally
       {
@@ -62,7 +58,6 @@ namespace Bar.Repositories
         SqlCommand cmd = new SqlCommand();
         cmd.Connection = connection;
 
-        //cmd.CommandText = "select us.cpf from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= '@Cpf'";
         cmd.CommandText = "select id_produto, descricao, valor, tipo_produto, qtd_estoque, status from produto where id_produto = @id";
         cmd.Parameters.AddWithValue("@id", id);
 
@@ -88,8 +83,6 @@ namespace Bar.Repositories
       catch (Exception ex)
       {
         throw new Exception(ex.Message);
-        //Console.WriteLine(ex.Message);
-        //return null;
       }
       finally
       {
@@ -106,10 +99,6 @@ namespace Bar.Repositories
         cmd.Connection = connection;
 
         cmd.CommandText = "select id_produto, descricao, tipo_produto, qtd_estoque, valor, data_inclusao, status from produto order by descricao";
-
-        //cmd.CommandText = "select us.cpf from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= '@Cpf'";
-
-        //cmd.Parameters.AddWithValue("@cpf", Cpf);
 
         SqlDataReader Reader = cmd.ExecuteReader();
 
@@ -133,8 +122,6 @@ namespace Bar.Repositories
       catch (Exception ex)
       {
         throw new Exception(ex.Message);
-        //Console.WriteLine(ex.Message);
-        //return null;
       }
       finally
       {
@@ -142,95 +129,13 @@ namespace Bar.Repositories
       }
     }
 
-    /*    public Produto Read(int id)
-        {
-          try
-          {
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = connection;
-
-            //cmd.CommandText = "select us.cpf from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= '@Cpf'";
-            cmd.CommandText = "select id_produto, descricao, valor, tipo_produto from produto where id_produto = @id";
-
-            cmd.Parameters.AddWithValue("@id", id);
-
-            SqlDataReader Reader = cmd.ExecuteReader();
-
-
-            if (Reader.Read())
-            {
-              Produto produto = new Produto();
-              produto.IdProduto = Reader.GetInt32("id_produto");
-              produto.Descricao = Reader.GetString("descricao");
-              produto.Valor = Math.Round(Reader.GetDecimal("valor"), 2);
-              produto.TipoProduto = Reader.GetInt32("tipo_produto");
-
-              return produto;
-            }
-
-            return null;
-
-          }
-          catch (Exception ex)
-          {
-            throw new Exception(ex.Message);
-            //Console.WriteLine(ex.Message);
-            //return null;
-          }
-          finally
-          {
-            Dispose();
-          }
-        }*/
-
-    public void InserirProduto(Produto model)
-    {
-      try
-      {
-        SqlCommand cmd = new SqlCommand();
-        cmd.Connection = connection;
-
-        //cmd.CommandText = "select us.cpf from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= '@Cpf'";
-        cmd.CommandText = "select id_produto, descricao, valor, tipo_produto from produto where id_produto = @id";
-        cmd.CommandText = "insert into produto_pedido (id_produto, descricao, valor, tipo_produto) where id_produto = @id";
-
-        //cmd.Parameters.AddWithValue("@id", id);
-
-        SqlDataReader Reader = cmd.ExecuteReader();
-
-
-        if (Reader.Read())
-        {
-          Produto produto = new Produto();
-          produto.IdProduto = Reader.GetInt32("id_produto");
-          produto.Descricao = Reader.GetString("descricao");
-          produto.Valor = Math.Round(Reader.GetDecimal("valor"), 2);
-          produto.TipoProduto = Reader.GetInt32("tipo_produto");
-        }
-
-      }
-      catch (Exception ex)
-      {
-        throw new Exception(ex.Message);
-        //Console.WriteLine(ex.Message);
-        //return null;
-      }
-      finally
-      {
-        Dispose();
-      }
-    }
-    private static List<int> teste = new List<int>();
-    private static List<Produto> teste2 = new List<Produto>();
-
-    public List<Produto> Query(int id)
+    public List<Produto> SelecionarProduto(int id)
     {
       try
       {
         SqlCommand cmdProd = new SqlCommand();
         cmdProd.Connection = connection;
 
-        //cmd.CommandText = "select us.cpf from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= '@Cpf'";
         cmdProd.CommandText = "select id_produto, descricao, valor, qtd_estoque, tipo_produto from produto where id_produto = @id";
 
         cmdProd.Parameters.AddWithValue("@id", id);
@@ -248,8 +153,8 @@ namespace Bar.Repositories
           produto.TipoProduto = Reader.GetInt32("tipo_produto");
           produto.Quantidade = 1;
 
-          teste2.Add(produto);
-          return teste2;
+          produtos.Add(produto);
+          return produtos;
         }
 
         return null;
@@ -258,21 +163,11 @@ namespace Bar.Repositories
       catch (Exception ex)
       {
         throw new Exception(ex.Message);
-        //Console.WriteLine(ex.Message);
-        //return null;
       }
       finally
       {
         Dispose();
       }
-      /*
-      teste.Add(id);
-      return teste;*/
-    }
-    public List<int> Create(int id)
-    {
-      teste.Add(id);
-      return teste;
     }
 
     public void AdicionarProduto(Produto produto)
@@ -333,9 +228,6 @@ namespace Bar.Repositories
 
         cmd.CommandText = "update produto set status = 2 where id_produto = @id_produto";
         cmd.Parameters.AddWithValue("@id_produto", id);
-        /*
-                cmd.CommandText = "delete from produto where id_produto = @id_produto";
-                cmd.Parameters.AddWithValue("@id_produto", id);*/
         cmd.ExecuteNonQuery();
       }
       catch (Exception ex)

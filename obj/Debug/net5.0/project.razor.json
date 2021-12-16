@@ -15624,11 +15624,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\.vscodeProjects\\fatec\\testeConexao\\Views\\Home\\Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "d:\\.vscodeProjects\\fatec\\testeConexao\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
@@ -15651,16 +15646,6 @@
     {
       "FilePath": "d:\\.vscodeProjects\\fatec\\testeConexao\\Views\\Produto\\Estoque.cshtml",
       "TargetPath": "Views\\Produto\\Estoque.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\.vscodeProjects\\fatec\\testeConexao\\Views\\Bar\\Cardapio.cshtml",
-      "TargetPath": "Views\\Bar\\Cardapio.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\.vscodeProjects\\fatec\\testeConexao\\Views\\Usuario\\Admin.cshtml",
-      "TargetPath": "Views\\Usuario\\Admin.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15694,23 +15679,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\.vscodeProjects\\fatec\\testeConexao\\Views\\Bar\\Index.cshtml",
-      "TargetPath": "Views\\Bar\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\.vscodeProjects\\fatec\\testeConexao\\Views\\Controle\\Index.cshtml",
-      "TargetPath": "Views\\Controle\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "d:\\.vscodeProjects\\fatec\\testeConexao\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\.vscodeProjects\\fatec\\testeConexao\\Views\\Mesa\\Mesas.cshtml",
-      "TargetPath": "Views\\Mesa\\Mesas.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15726,16 +15696,6 @@
     {
       "FilePath": "d:\\.vscodeProjects\\fatec\\testeConexao\\Views\\Usuario\\Login.cshtml",
       "TargetPath": "Views\\Usuario\\Login.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\.vscodeProjects\\fatec\\testeConexao\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\.vscodeProjects\\fatec\\testeConexao\\Views\\Pedido\\Index.cshtml",
-      "TargetPath": "Views\\Pedido\\Index.cshtml",
       "FileKind": "mvc"
     }
   ],

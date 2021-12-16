@@ -11,9 +11,9 @@ namespace Bar.Controllers
 {
   public class UsuarioController : Controller
   {
-    private UsuarioDatabaseRepository repository;
+    private IUsuarioRepository repository;
 
-    public UsuarioController(UsuarioDatabaseRepository repository)
+    public UsuarioController(IUsuarioRepository repository)
     {
       this.repository = repository;
     }
@@ -28,7 +28,6 @@ namespace Bar.Controllers
     public ActionResult Login(Usuario model)
     {
       Usuario usuario = repository.Read(model.Cpf, model.Tipo);
-      //Usuario usuario = repository.ValidarLogin(model.Cpf);
 
       if (usuario == null)
       {
@@ -72,9 +71,6 @@ namespace Bar.Controllers
       List<Produto> produtos = repository.Produtos(id);
       ViewBag.Produtos = produtos;
       ViewBag.Status = status;
-      /*
-      JsonSerializer.Deserialize<Int32>(TempData["StatusPedido"] as String);
-      TempData["StatusPedido"] = JsonSerializer.Serialize(ViewBag.Pedidos[0].Status);*/
       return View("Pedido");
     }
 
@@ -88,11 +84,6 @@ namespace Bar.Controllers
     public ActionResult Cardapio()
     {
       return RedirectToAction("Cardapio", "Produto");
-    }
-
-    public ActionResult Admin()
-    {
-      return View();
     }
   }
 }

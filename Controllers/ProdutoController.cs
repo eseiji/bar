@@ -12,7 +12,6 @@ namespace Bar.Models
   public class ProdutoController : Controller
   {
     private IProdutoRepository repository;
-    //private IProdutoMemoryRepository mrepository;
     public ProdutoController(IProdutoRepository repository)
     {
       this.repository = repository;
@@ -52,15 +51,14 @@ namespace Bar.Models
 
     public ActionResult selecionarProduto(int id)
     {
-      List<Produto> teste = repository.Query(id);
-      //ViewBag.teste = teste;
+      List<Produto> teste = repository.SelecionarProduto(id);
 
       return RedirectToAction("Cardapio", teste[teste.Count - 1]);
     }
 
     public ActionResult incrementoQtd(int id)
     {
-      List<Produto> produto = repository.Query(id);
+      List<Produto> produto = repository.SelecionarProduto(id);
       foreach (var item in selecionados)
       {
         if (item.IdProduto == id)

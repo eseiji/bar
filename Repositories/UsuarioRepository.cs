@@ -1,36 +1,44 @@
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using Bar.Models;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace Bar.Repositories
 {
-  public class MesaRepository : BDContext, IMesaRepository
+  public class UsuarioRepository : BDContext, IUsuarioRepository
   {
-    public List<Mesa> Read()
+    public Usuario Read(string Cpf, string Tipo)
     {
       try
       {
-        List<Mesa> lista_mesa = new List<Mesa>();
-
         SqlCommand cmd = new SqlCommand();
         cmd.Connection = connection;
-        cmd.CommandText = "select id_mesa, status from mesa";
+
+        if (Tipo == "cliente")
+        {
+          cmd.CommandText = "select us.cpf, us.id_usuario, us.nome from usuario us join cliente cli on (us.id_usuario = cli.id_usuario) where us.cpf= @Cpf";
+        }
+        if (Tipo == "funcionario")
+        {
+          cmd.CommandText = "select us.cpf, us.id_usuario, us.nome from usuario us join funcionario func on (us.id_usuario = func.id_usuario) where us.cpf= @Cpf";
+        }
+
+        cmd.Parameters.AddWithValue("@cpf", Cpf);
 
         SqlDataReader Reader = cmd.ExecuteReader();
 
-
-        while (Reader.Read())
+        if (Reader.Read())
         {
-          Mesa mesa = new Mesa();
-          mesa.IdMesa = Reader.GetInt32("id_mesa");
-          mesa.Status = Reader.GetInt32("status");
+          Usuario usuario = new Usuario();
+          usuario.Cpf = Reader.GetString(0);
+          usuario.IdUsuario = Reader.GetInt32(1);
+          usuario.Nome = Reader.GetString(2);
 
-          lista_mesa.Add(mesa);
+          return usuario;
         }
 
-        return lista_mesa;
+        return null;
 
       }
       catch (Exception ex)
@@ -52,7 +60,7 @@ namespace Bar.Repositories
         SqlCommand cmd = new SqlCommand();
         cmd.Connection = connection;
 
-        cmd.CommandText = "select pe.id_pedido, pe.data_inclusao, pe.status, sum(pr.qtd_vendida * pr.valor_unitario) as total, pe.id_mesa from pedido pe join produto_pedido pr on (pr.id_pedido = pe.id_pedido) join produto prod on (prod.id_produto = pr.id_produto) where pe.id_mesa = @id and pe.data_inclusao = CONVERT(date, GETDATE()) and pe.status in (1, 2) group by pe.id_pedido, pe.data_inclusao, pe.status, pe.id_mesa order by pe.data_inclusao desc";
+        cmd.CommandText = "select pe.id_pedido, pe.data_inclusao, pe.status, sum(pr.qtd_vendida * pr.valor_unitario) as total, pe.id_mesa from pedido pe join produto_pedido pr on (pr.id_pedido = pe.id_pedido) join produto prod on (prod.id_produto = pr.id_produto) where pe.id_cliente = @id group by pe.id_pedido, pe.data_inclusao, pe.id_mesa, pe.status order by pe.data_inclusao desc";
 
         cmd.Parameters.AddWithValue("@id", id);
 
@@ -121,28 +129,18 @@ namespace Bar.Repositories
       }
     }
 
-    public void AtualizarPedido(int id, List<Pedido> pedidos)
+    public void Pagamento(int id)
     {
       try
       {
+        SqlCommand cmd = new SqlCommand();
+        cmd.Connection = connection;
 
-        foreach (var item in pedidos)
-        {
-          SqlCommand cmd = new SqlCommand();
-          cmd.Connection = connection;
-          cmd.CommandText = "update pedido set status = 3, id_funcionario = @id_funcionario where id_pedido = @id_pedido";
-          cmd.Parameters.AddWithValue("@id_funcionario", id);
-          cmd.Parameters.AddWithValue("@id_pedido", item.IdPedido);
+        cmd.CommandText = "update pedido set status = 2 where id_pedido = @id";
 
+        cmd.Parameters.AddWithValue("@id", id);
 
-          SqlCommand cmdUpdateMesa = new SqlCommand();
-          cmdUpdateMesa.Connection = connection;
-          cmdUpdateMesa.CommandText = "update mesa set status = 1 where id_mesa = @id_mesa";
-          cmdUpdateMesa.Parameters.AddWithValue("@id_mesa", item.IdMesa);
-
-          cmdUpdateMesa.ExecuteNonQuery();
-          cmd.ExecuteNonQuery();
-        }
+        cmd.ExecuteNonQuery();
       }
       catch (Exception ex)
       {
@@ -153,6 +151,5 @@ namespace Bar.Repositories
         Dispose();
       }
     }
-
   }
 }
